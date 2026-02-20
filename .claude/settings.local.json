@@ -5,7 +5,10 @@
       "Bash(php:*)",
       "Bash(composer:*)",
       "Bash(curl:*)",
-      "Bash(D:/lara/www/ustam/public/assets/css/main.css:*)"
+      "Bash(D:/lara/www/ustam/public/assets/css/main.css:*)",
+      "Bash(\"D:/lara/www/ustam/database/migrations/2026_02_20_300001_create_portfolio_table.php\":*)",
+      "Bash(\"D:/lara/www/ustam/app/Http/Controllers/Admin/PortfolioController.php\":*)",
+      "Bash(\"D:/lara/www/ustam/app/Http/Controllers/PortfolioController.php\":*)"
     ]
   }
 }

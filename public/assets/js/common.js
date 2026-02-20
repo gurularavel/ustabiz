@@ -1,4 +1,4 @@
-function toggleMenu(){const m=document.getElementById('mobileMenu'),o=document.getElementById('mobileOverlay');m.classList.toggle('open');o.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
+function toggleMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
 function toggleFaq(item){const a=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('active'));if(!a)item.classList.add('active')}
 function submitForm(btn){const orig=btn.innerHTML;btn.innerHTML='⏳ Göndərilir...';btn.disabled=true;setTimeout(()=>{btn.innerHTML='✅ Uğurla göndərildi!';btn.style.background='#22c55e';setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';btn.disabled=false},3000)},1200)}
 // Phone mask: +994 XX XXX XX XX

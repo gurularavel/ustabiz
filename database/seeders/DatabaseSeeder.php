@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             PartnerSeeder::class,
             SettingSeeder::class,
             TeamMemberSeeder::class,
+            PortfolioSeeder::class,
         ]);
     }
 }

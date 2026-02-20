@@ -257,6 +257,9 @@
         <a href="{{ route('admin.services.index') }}" class="sidebar-link {{ request()->routeIs('admin.services*') ? 'active' : '' }}">
             <span class="icon">🔧</span> Xidmətlər
         </a>
+        <a href="{{ route('admin.portfolio.index') }}" class="sidebar-link {{ request()->routeIs('admin.portfolio*') ? 'active' : '' }}">
+            <span class="icon">🖼️</span> Portfolio
+        </a>
         <a href="{{ route('admin.team.index') }}" class="sidebar-link {{ request()->routeIs('admin.team*') ? 'active' : '' }}">
             <span class="icon">👨‍🔧</span> Komanda
         </a>

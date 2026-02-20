@@ -138,7 +138,7 @@
 @php $mapUrl = \App\Models\Setting::get('map_url', ''); @endphp
 @if($mapUrl)
     <iframe src="{{ $mapUrl }}"
-            width="100%" height="340" style="border:0;display:block;" allowfullscreen
+            width="100%" height="340" style="border:0;display:block;max-height:45vw;min-height:180px;" allowfullscreen
             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 @else
     <div class="map-placeholder">
@@ -183,8 +183,10 @@ textarea.form-control{resize:vertical;min-height:100px}
 .map-pin{font-size:32px}
 .map-label strong{display:block;font-size:15px;font-weight:700;color:var(--dark)}
 .map-label span{font-size:13.5px;color:var(--text-muted)}
-@media(max-width:991px){.contact-page-grid{grid-template-columns:1fr}}
-@media(max-width:767px){.page-hero h1{font-size:32px}.map-placeholder{height:220px}}
+@media(max-width:1199px){.contact-page-grid{gap:48px}}
+@media(max-width:991px){.contact-page-grid{grid-template-columns:1fr;gap:36px}.page-hero h1{font-size:36px}.page-hero{padding:52px 0 62px}.contact-intro{margin-bottom:20px}}
+@media(max-width:767px){.page-hero h1{font-size:26px}.page-hero p{font-size:15px}.map-placeholder{height:220px}.contact-form-card{padding:24px}.contact-form-card h3{font-size:18px}.cp-items{gap:12px}.cp-icon{width:40px;height:40px;font-size:18px}}
+@media(max-width:480px){.page-hero h1{font-size:22px}.contact-form-card{padding:18px}.contact-form-card h3{font-size:16px}.cp-social-link{padding:8px 14px;font-size:12px}.map-placeholder{height:180px}}
 </style>
 @endpush
 

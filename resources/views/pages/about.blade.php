@@ -154,8 +154,9 @@
 .cert-icon{font-size:30px;margin-bottom:10px}
 .cert-card strong{display:block;font-size:14px;font-weight:700;color:var(--dark);margin-bottom:4px}
 .cert-card span{font-size:12px;color:var(--text-muted)}
-@media(max-width:1199px){.cert-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:991px){.about-grid{grid-template-columns:1fr}.team-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:767px){.page-hero h1{font-size:32px}.cert-grid{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1199px){.cert-grid{grid-template-columns:repeat(3,1fr)}.about-grid{gap:48px}.about-text h2{font-size:32px}}
+@media(max-width:991px){.about-grid{grid-template-columns:1fr;gap:36px}.team-grid{grid-template-columns:repeat(3,1fr)}.page-hero h1{font-size:36px}.page-hero{padding:52px 0 62px}.about-text h2{font-size:28px}.cert-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:767px){.page-hero h1{font-size:26px}.page-hero p{font-size:15px}.cert-grid{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:repeat(2,1fr)}.about-text h2{font-size:22px}.about-stat-card{padding:18px 16px}.about-stat-card strong{font-size:28px}}
+@media(max-width:480px){.page-hero h1{font-size:22px}.team-grid{grid-template-columns:1fr 1fr}.cert-grid{grid-template-columns:repeat(2,1fr)}.cert-card{padding:14px 10px}.about-stat-card{padding:14px 12px}.about-stat-card strong{font-size:24px}}
 </style>
 @endpush

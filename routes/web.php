@@ -15,6 +15,7 @@ Route::get('/xidmetler/{slug}', [ServiceController::class, 'show'])->name('servi
 Route::post('/sifaris', [OrderController::class, 'store'])->name('order.store');
 
 Route::get('/haqqimizda', App\Http\Controllers\AboutController::class)->name('about');
+Route::get('/portfolio', App\Http\Controllers\PortfolioController::class)->name('portfolio');
 Route::view('/elaqe', 'pages.contact')->name('contact');
 
 // Admin auth (guest only)
@@ -29,6 +30,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('services', Admin\ServiceController::class)->only(['index', 'create', 'store', 'edit', 'update']);
     Route::get('orders', [Admin\OrderController::class, 'index'])->name('orders.index');
     Route::put('orders/{order}/status', [Admin\OrderController::class, 'updateStatus'])->name('orders.status');
+    Route::resource('portfolio', Admin\PortfolioController::class)->except(['show']);
     Route::resource('team', Admin\TeamMemberController::class)->except(['show'])->parameters(['team' => 'team']);
     Route::resource('testimonials', Admin\TestimonialController::class)->except(['show']);
     Route::resource('faqs', Admin\FaqController::class)->except(['show']);

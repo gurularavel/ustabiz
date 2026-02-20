@@ -84,6 +84,8 @@
 .sl-guarantee{color:var(--text-muted)}
 .sl-card-arrow{flex-shrink:0}
 .sl-card-arrow span{font-size:14px;font-weight:600;color:var(--primary);background:var(--primary-light);padding:8px 18px;border-radius:100px;white-space:nowrap}
-@media(max-width:767px){.sl-card{flex-direction:column;align-items:flex-start;gap:16px}.sl-card-arrow{align-self:flex-end}.page-hero h1{font-size:32px}}
+@media(max-width:991px){.page-hero h1{font-size:36px}.page-hero{padding:52px 0 62px}}
+@media(max-width:767px){.sl-card{flex-direction:column;align-items:flex-start;gap:14px}.sl-card-arrow{align-self:flex-end}.page-hero h1{font-size:28px}.page-hero p{font-size:15px}.sl-card-body h2{font-size:17px}}
+@media(max-width:480px){.sl-card{padding:18px 16px;gap:12px}.sl-icon{width:54px;height:54px;font-size:26px;border-radius:14px}.page-hero h1{font-size:24px}.sl-meta{flex-wrap:wrap;gap:10px}}
 </style>
 @endpush
