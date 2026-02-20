@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ustam.az)",
+      "Bash(php:*)",
+      "Bash(composer:*)",
+      "Bash(curl:*)",
+      "Bash(D:/lara/www/ustam/public/assets/css/main.css:*)"
+    ]
+  }
+}
