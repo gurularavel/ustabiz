@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Giriş – USTA.AZ</title>
+    <title>Admin Giriş – USTA.Biz.AZ</title>
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', -apple-system, sans-serif; background: #12121E; min-height: 100vh; display: flex; align-items: center; justify-content: center; }

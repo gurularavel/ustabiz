@@ -92,19 +92,19 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label class="form-label">Facebook URL</label>
-                        <input type="url" name="facebook_url" class="form-control" value="{{ old('facebook_url', $settings['facebook_url'] ?? '') }}" placeholder="https://facebook.com/...">
+                        <input type="text" name="facebook_url" class="form-control" value="{{ old('facebook_url', $settings['facebook_url'] ?? '') }}" placeholder="https://facebook.com/...">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Instagram URL</label>
-                        <input type="url" name="instagram_url" class="form-control" value="{{ old('instagram_url', $settings['instagram_url'] ?? '') }}" placeholder="https://instagram.com/...">
+                        <input type="text" name="instagram_url" class="form-control" value="{{ old('instagram_url', $settings['instagram_url'] ?? '') }}" placeholder="https://instagram.com/...">
                     </div>
                     <div class="form-group">
                         <label class="form-label">WhatsApp URL</label>
-                        <input type="url" name="whatsapp_url" class="form-control" value="{{ old('whatsapp_url', $settings['whatsapp_url'] ?? '') }}" placeholder="https://wa.me/994...">
+                        <input type="text" name="whatsapp_url" class="form-control" value="{{ old('whatsapp_url', $settings['whatsapp_url'] ?? '') }}" placeholder="https://wa.me/994...">
                     </div>
                     <div class="form-group">
                         <label class="form-label">YouTube URL</label>
-                        <input type="url" name="youtube_url" class="form-control" value="{{ old('youtube_url', $settings['youtube_url'] ?? '') }}" placeholder="https://youtube.com/...">
+                        <input type="text" name="youtube_url" class="form-control" value="{{ old('youtube_url', $settings['youtube_url'] ?? '') }}" placeholder="https://youtube.com/...">
                     </div>
                 </div>
             </div>

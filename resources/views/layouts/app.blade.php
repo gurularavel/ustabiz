@@ -192,7 +192,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© {{ date('Y') }} USTA.AZ — Bütün hüquqlar qorunur.</p>
+            <p>© {{ date('Y') }} USTA.BİZ.AZ — Bütün hüquqlar qorunur.</p>
             <div class="footer-bottom-links">
                 <a href="#">Məxfilik siyasəti</a>
                 <a href="#">İstifadə şərtləri</a>
