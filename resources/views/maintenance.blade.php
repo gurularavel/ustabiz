@@ -105,7 +105,7 @@
 </head>
 <body>
     <div class="card">
-        <div class="logo">USTA<span>.AZ</span></div>
+        <div class="logo">USTA<span>.BİZ.AZ</span></div>
         <div style="margin-top:6px;margin-bottom:32px;font-size:13px;color:rgba(255,255,255,0.3);">
             {{ \App\Models\Setting::get('site_title', 'Peşəkar Ev Texnikası Təmiri') }}
         </div>
