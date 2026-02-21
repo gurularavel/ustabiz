@@ -7,16 +7,18 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Admin;
 
 
-Route::get('/', HomeController::class)->name('home');
+Route::middleware('maintenance')->group(function () {
+    Route::get('/', HomeController::class)->name('home');
 
-Route::get('/xidmetler', [ServiceController::class, 'index'])->name('services.index');
-Route::get('/xidmetler/{slug}', [ServiceController::class, 'show'])->name('services.show');
+    Route::get('/xidmetler', [ServiceController::class, 'index'])->name('services.index');
+    Route::get('/xidmetler/{slug}', [ServiceController::class, 'show'])->name('services.show');
 
-Route::post('/sifaris', [OrderController::class, 'store'])->name('order.store');
+    Route::post('/sifaris', [OrderController::class, 'store'])->name('order.store');
 
-Route::get('/haqqimizda', App\Http\Controllers\AboutController::class)->name('about');
-Route::get('/portfolio', App\Http\Controllers\PortfolioController::class)->name('portfolio');
-Route::view('/elaqe', 'pages.contact')->name('contact');
+    Route::get('/haqqimizda', App\Http\Controllers\AboutController::class)->name('about');
+    Route::get('/portfolio', App\Http\Controllers\PortfolioController::class)->name('portfolio');
+    Route::view('/elaqe', 'pages.contact')->name('contact');
+});
 
 // Admin auth (guest only)
 Route::get('/admin/login', [Admin\AuthController::class, 'showLogin'])->name('admin.login');
