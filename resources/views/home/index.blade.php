@@ -97,9 +97,9 @@
 <section class="section section-alt" id="xidmetler">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">🔧 Xidmətlərimiz</div>
-            <h2>Hansı texnikaya baxırıq?</h2>
-            <p>12 xidmət növü, 40+ marka, bütün model sərisi — Bakı ərazisindəki bütün müraciətlər qəbul edilir.</p>
+            <div class="section-label">{{ \App\Models\Setting::get('services_label', '🔧 Xidmətlərimiz') }}</div>
+            <h2>{{ \App\Models\Setting::get('services_title', 'Hansı texnikaya baxırıq?') }}</h2>
+            <p>{{ \App\Models\Setting::get('services_desc', '12 xidmət növü, 40+ marka, bütün model sərisi — Bakı ərazisindəki bütün müraciətlər qəbul edilir.') }}</p>
         </div>
         <div class="services-grid">
             @foreach($services as $service)
@@ -124,14 +124,15 @@
     <div class="container">
         <div class="cta-banner-inner">
             <div class="cta-banner-text">
-                <h2>İndi zəng edin – <span>30 dəqiqəyə</span> cavab alın!</h2>
-                <p>Pulsuz diaqnostika, münasib qiymətlər, 12 ay zəmanət. Ustalarımız Bakının bütün rayonlarına gedir.</p>
+                <h2>{{ \App\Models\Setting::get('cta_title', 'İndi zəng edin – ') }}<span>{{ \App\Models\Setting::get('cta_title_span', '30 dəqiqəyə') }}</span> cavab alın!</h2>
+                <p>{{ \App\Models\Setting::get('cta_desc', 'Pulsuz diaqnostika, münasib qiymətlər, 12 ay zəmanət. Ustalarımız Bakının bütün rayonlarına gedir.') }}</p>
             </div>
             <div class="cta-banner-actions">
-                <a href="tel:+994552345678" class="btn btn-primary">
-                    📞 +994 55 234 56 78
+                @php $phone = \App\Models\Setting::get('phone', '+994552345678'); $phoneClean = preg_replace('/\D/', '', $phone); @endphp
+                <a href="tel:+{{ $phoneClean }}" class="btn btn-primary">
+                    📞 {{ $phone }}
                 </a>
-                <a href="https://wa.me/994552345678" class="btn btn-outline" target="_blank">
+                <a href="{{ \App\Models\Setting::get('whatsapp_url', 'https://wa.me/994552345678') }}" class="btn btn-outline" target="_blank">
                     💬 WhatsApp
                 </a>
             </div>
@@ -143,9 +144,9 @@
 <section class="section" id="ustunlukler">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">⭐ Üstünlüklər</div>
-            <h2>Niyə bizi seçirsiniz?</h2>
-            <p>Hər il minlərlə müştəri bizə etibar edir. Bu güvənin arxasında ciddi tərəfdaşlıq dayanır.</p>
+            <div class="section-label">{{ \App\Models\Setting::get('adv_label', '⭐ Üstünlüklər') }}</div>
+            <h2>{{ \App\Models\Setting::get('adv_title', 'Niyə bizi seçirsiniz?') }}</h2>
+            <p>{{ \App\Models\Setting::get('adv_desc', 'Hər il minlərlə müştəri bizə etibar edir. Bu güvənin arxasında ciddi tərəfdaşlıq dayanır.') }}</p>
         </div>
         <div class="adv-grid">
             @foreach($advantages as $adv)
@@ -163,34 +164,34 @@
 <section class="section section-alt" id="proses">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">📋 Proses</div>
-            <h2>Necə işləyirik?</h2>
-            <p>Sadə, şəffaf, rahat. Sifariş verməkdən işin tamamlanmasına qədər 4 addım.</p>
+            <div class="section-label">{{ \App\Models\Setting::get('steps_label', '📋 Proses') }}</div>
+            <h2>{{ \App\Models\Setting::get('steps_title', 'Necə işləyirik?') }}</h2>
+            <p>{{ \App\Models\Setting::get('steps_desc', 'Sadə, şəffaf, rahat. Sifariş verməkdən işin tamamlanmasına qədər 4 addım.') }}</p>
         </div>
         <div class="steps-grid">
             <div class="step-card fade-in">
                 <div class="step-num">1</div>
-                <div class="step-icon">📞</div>
-                <h3>Sifariş verin</h3>
-                <p>Zəng edin və ya formu doldurun. Operator 5 dəqiqəyə geri zəng edir.</p>
+                <div class="step-icon">{{ \App\Models\Setting::get('step1_icon', '📞') }}</div>
+                <h3>{{ \App\Models\Setting::get('step1_title', 'Sifariş verin') }}</h3>
+                <p>{{ \App\Models\Setting::get('step1_desc', 'Zəng edin və ya formu doldurun. Operator 5 dəqiqəyə geri zəng edir.') }}</p>
             </div>
             <div class="step-card fade-in" style="animation-delay:0.1s">
                 <div class="step-num">2</div>
-                <div class="step-icon">🚗</div>
-                <h3>Usta gəlir</h3>
-                <p>Sifarişdən sonra 1-2 saata usta evinizə gəlir. Fövqəladə hallarda daha tez.</p>
+                <div class="step-icon">{{ \App\Models\Setting::get('step2_icon', '🚗') }}</div>
+                <h3>{{ \App\Models\Setting::get('step2_title', 'Usta gəlir') }}</h3>
+                <p>{{ \App\Models\Setting::get('step2_desc', 'Sifarişdən sonra 1-2 saata usta evinizə gəlir. Fövqəladə hallarda daha tez.') }}</p>
             </div>
             <div class="step-card fade-in" style="animation-delay:0.2s">
                 <div class="step-num">3</div>
-                <div class="step-icon">🔍</div>
-                <h3>Pulsuz diaqnostika</h3>
-                <p>Usta texnikanızı yoxlayır, problemi tapır. Diaqnostika tamamilə pulsuzdur.</p>
+                <div class="step-icon">{{ \App\Models\Setting::get('step3_icon', '🔍') }}</div>
+                <h3>{{ \App\Models\Setting::get('step3_title', 'Pulsuz diaqnostika') }}</h3>
+                <p>{{ \App\Models\Setting::get('step3_desc', 'Usta texnikanızı yoxlayır, problemi tapır. Diaqnostika tamamilə pulsuzdur.') }}</p>
             </div>
             <div class="step-card fade-in" style="animation-delay:0.3s">
                 <div class="step-num">4</div>
-                <div class="step-icon">✅</div>
-                <h3>Təmir + Zəmanət</h3>
-                <p>İş tamamlanır, 12 aylıq yazılı zəmanət verilir. Ödəniş yalnız sonra.</p>
+                <div class="step-icon">{{ \App\Models\Setting::get('step4_icon', '✅') }}</div>
+                <h3>{{ \App\Models\Setting::get('step4_title', 'Təmir + Zəmanət') }}</h3>
+                <p>{{ \App\Models\Setting::get('step4_desc', 'İş tamamlanır, 12 aylıq yazılı zəmanət verilir. Ödəniş yalnız sonra.') }}</p>
             </div>
         </div>
     </div>
@@ -200,9 +201,9 @@
 <section class="section" id="reylər">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">💬 Rəylər</div>
-            <h2>Müştərilərimiz nə deyir?</h2>
-            <p>15 000-dən çox müştərinin real rəyləri. Ürəkdən gələn sözlər.</p>
+            <div class="section-label">{{ \App\Models\Setting::get('reviews_label', '💬 Rəylər') }}</div>
+            <h2>{{ \App\Models\Setting::get('reviews_title', 'Müştərilərimiz nə deyir?') }}</h2>
+            <p>{{ \App\Models\Setting::get('reviews_desc', '15 000-dən çox müştərinin real rəyləri. Ürəkdən gələn sözlər.') }}</p>
         </div>
         <div class="reviews-grid">
             @foreach($testimonials as $t)
@@ -221,20 +222,20 @@
         </div>
         <div class="stats-bar">
             <div class="stat-item">
-                <strong>15 000+</strong>
-                <span>Müştəri</span>
+                <strong>{{ \App\Models\Setting::get('reviews_stat1_value', '15 000+') }}</strong>
+                <span>{{ \App\Models\Setting::get('reviews_stat1_label', 'Müştəri') }}</span>
             </div>
             <div class="stat-item">
-                <strong>4.9 / 5</strong>
-                <span>Ortalama reytinq</span>
+                <strong>{{ \App\Models\Setting::get('reviews_stat2_value', '4.9 / 5') }}</strong>
+                <span>{{ \App\Models\Setting::get('reviews_stat2_label', 'Ortalama reytinq') }}</span>
             </div>
             <div class="stat-item">
-                <strong>98%</strong>
-                <span>Müvəffəqiyyət dərəcəsi</span>
+                <strong>{{ \App\Models\Setting::get('reviews_stat3_value', '98%') }}</strong>
+                <span>{{ \App\Models\Setting::get('reviews_stat3_label', 'Müvəffəqiyyət dərəcəsi') }}</span>
             </div>
             <div class="stat-item">
-                <strong>12 il</strong>
-                <span>Bazar təcrübəsi</span>
+                <strong>{{ \App\Models\Setting::get('reviews_stat4_value', '12 il') }}</strong>
+                <span>{{ \App\Models\Setting::get('reviews_stat4_label', 'Bazar təcrübəsi') }}</span>
             </div>
         </div>
     </div>
@@ -244,9 +245,9 @@
 <section class="section section-alt">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">🤝 Brendlər</div>
-            <h2>Xidmət göstərdiyimiz markalar</h2>
-            <p>40+ aparıcı dünya markasının texnikasını təmir edirik. Orijinal ehtiyat hissələri.</p>
+            <div class="section-label">{{ \App\Models\Setting::get('partners_label', '🤝 Brendlər') }}</div>
+            <h2>{{ \App\Models\Setting::get('partners_title', 'Xidmət göstərdiyimiz markalar') }}</h2>
+            <p>{{ \App\Models\Setting::get('partners_desc', '40+ aparıcı dünya markasının texnikasını təmir edirik. Orijinal ehtiyat hissələri.') }}</p>
         </div>
         <div class="partners-grid">
             @foreach($partners as $partner)
@@ -260,9 +261,9 @@
 <section class="section" id="faq">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">❓ Suallar</div>
-            <h2>Tez-tez verilən suallar</h2>
-            <p>Ən çox soruşulan sualların cavablarını burada tapa bilərsiniz.</p>
+            <div class="section-label">{{ \App\Models\Setting::get('faq_label', '❓ Suallar') }}</div>
+            <h2>{{ \App\Models\Setting::get('faq_title', 'Tez-tez verilən suallar') }}</h2>
+            <p>{{ \App\Models\Setting::get('faq_desc', 'Ən çox soruşulan sualların cavablarını burada tapa bilərsiniz.') }}</p>
         </div>
         <div class="faq-list">
             @foreach($faqs as $i => $faq)
@@ -284,38 +285,45 @@
 <section class="section section-alt" id="elaqe">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">📬 Əlaqə</div>
-            <h2>Bizimlə əlaqə saxlayın</h2>
-            <p>Hər hansı sualınız varsa, zəng edin. Və ya formu doldurun, biz sizə zəng edək.</p>
+            <div class="section-label">{{ \App\Models\Setting::get('home_contact_label', '📬 Əlaqə') }}</div>
+            <h2>{{ \App\Models\Setting::get('home_contact_title', 'Bizimlə əlaqə saxlayın') }}</h2>
+            <p>{{ \App\Models\Setting::get('home_contact_desc', 'Hər hansı sualınız varsa, zəng edin. Və ya formu doldurun, biz sizə zəng edək.') }}</p>
         </div>
         <div class="contact-grid">
             <div class="contact-info">
+                @php
+                    $addr = \App\Models\Setting::get('address', 'H. Zərdabi 78V, Bakı, Azərbaycan');
+                    $phone = \App\Models\Setting::get('phone', '+994 55 234 56 78');
+                    $phoneClean = preg_replace('/\D/', '', $phone);
+                    $hours = \App\Models\Setting::get('working_hours', 'Hər gün: 08:00 – 22:00');
+                    $email = \App\Models\Setting::get('email', 'info@ustam.az');
+                @endphp
                 <div class="contact-item">
                     <div class="contact-item-icon">📍</div>
                     <div>
                         <strong>Ünvan</strong>
-                        <span>H. Zərdabi 78V, Bakı, Azərbaycan</span>
+                        <span>{{ $addr }}</span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">📞</div>
                     <div>
                         <strong>Telefon</strong>
-                        <span><a href="tel:+994552345678">+994 55 234 56 78</a></span>
+                        <span><a href="tel:+{{ $phoneClean }}">{{ $phone }}</a></span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">⏰</div>
                     <div>
                         <strong>İş saatları</strong>
-                        <span>Hər gün: 08:00 – 22:00</span>
+                        <span>{{ $hours }}</span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">✉️</div>
                     <div>
                         <strong>E-mail</strong>
-                        <span><a href="mailto:info@ustam.az">info@ustam.az</a></span>
+                        <span><a href="mailto:{{ $email }}">{{ $email }}</a></span>
                     </div>
                 </div>
             </div>

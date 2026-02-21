@@ -39,6 +39,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 
     Route::get('pages/hero', [Admin\PageController::class, 'heroEdit'])->name('pages.hero');
     Route::put('pages/hero', [Admin\PageController::class, 'heroUpdate'])->name('pages.hero.update');
+    Route::get('pages/home', [Admin\PageController::class, 'homeEdit'])->name('pages.home');
+    Route::put('pages/home', [Admin\PageController::class, 'homeUpdate'])->name('pages.home.update');
     Route::get('pages/about', [Admin\PageController::class, 'aboutEdit'])->name('pages.about');
     Route::put('pages/about', [Admin\PageController::class, 'aboutUpdate'])->name('pages.about.update');
+    Route::get('pages/contact', [Admin\PageController::class, 'contactEdit'])->name('pages.contact');
+    Route::put('pages/contact', [Admin\PageController::class, 'contactUpdate'])->name('pages.contact.update');
 });

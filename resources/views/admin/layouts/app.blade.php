@@ -272,10 +272,16 @@
 
         <div class="nav-section">Səhifələr</div>
         <a href="{{ route('admin.pages.hero') }}" class="sidebar-link {{ request()->routeIs('admin.pages.hero*') ? 'active' : '' }}">
-            <span class="icon">🏠</span> Ana səhifə Hero
+            <span class="icon">🏠</span> Ana səhifə – Hero
+        </a>
+        <a href="{{ route('admin.pages.home') }}" class="sidebar-link {{ request()->routeIs('admin.pages.home*') ? 'active' : '' }}">
+            <span class="icon">📝</span> Ana səhifə – Məzmun
         </a>
         <a href="{{ route('admin.pages.about') }}" class="sidebar-link {{ request()->routeIs('admin.pages.about*') ? 'active' : '' }}">
             <span class="icon">📄</span> Haqqımızda
+        </a>
+        <a href="{{ route('admin.pages.contact') }}" class="sidebar-link {{ request()->routeIs('admin.pages.contact*') ? 'active' : '' }}">
+            <span class="icon">📬</span> Əlaqə səhifəsi
         </a>
 
         <div class="nav-section">Sistem</div>
