@@ -15,8 +15,8 @@
                 <div class="form-group" style="margin-bottom:0;">
                     <label class="form-label">Sayt adı / başlığı</label>
                     <input type="text" name="site_title" class="form-control"
-                           value="{{ old('site_title', $settings['site_title'] ?? 'USTAM.AZ – Bakıda Peşəkar Ev Texnikası Təmiri') }}"
-                           placeholder="USTAM.AZ – Bakıda Peşəkar Ev Texnikası Təmiri">
+                           value="{{ old('site_title', $settings['site_title'] ?? 'USTA.BİZ.AZ – Bakıda Peşəkar Ev Texnikası Təmiri') }}"
+                           placeholder="USTA.BİZ.AZ – Bakıda Peşəkar Ev Texnikası Təmiri">
                     <div class="form-hint">Brauzer sekmesinde və axtarış nəticələrində görünür</div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">E-poçt</label>
-                        <input type="email" name="email" class="form-control" value="{{ old('email', $settings['email'] ?? '') }}" placeholder="info@ustam.az">
+                        <input type="email" name="email" class="form-control" value="{{ old('email', $settings['email'] ?? '') }}" placeholder="info@usta.biz.az">
                     </div>
                     <div class="form-group">
                         <label class="form-label">İş saatları</label>

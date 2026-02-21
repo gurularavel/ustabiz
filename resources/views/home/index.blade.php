@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'USTAM.AZ – Bakıda Peşəkar Ev Texnikası Təmiri')
+@section('title', \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ – Bakıda Peşəkar Ev Texnikası Təmiri'))
 
 @section('content')
 
@@ -296,7 +296,7 @@
                     $phone = \App\Models\Setting::get('phone', '+994 55 234 56 78');
                     $phoneClean = preg_replace('/\D/', '', $phone);
                     $hours = \App\Models\Setting::get('working_hours', 'Hər gün: 08:00 – 22:00');
-                    $email = \App\Models\Setting::get('email', 'info@ustam.az');
+                    $email = \App\Models\Setting::get('email', 'info@usta.biz.az');
                 @endphp
                 <div class="contact-item">
                     <div class="contact-item-icon">📍</div>

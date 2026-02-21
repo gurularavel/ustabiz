@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', \App\Models\Setting::get('site_title', 'USTAM.AZ – Bakıda Peşəkar Ev Texnikası Təmiri'))</title>
+    <title>@yield('title', \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ – Bakıda Peşəkar Ev Texnikası Təmiri'))</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="topbar-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    {{ \App\Models\Setting::get('email', 'info@ustam.az') }}
+                    {{ \App\Models\Setting::get('email', 'info@usta.biz.az') }}
                 </div>
             </div>
             <div class="topbar-right">
@@ -52,7 +52,7 @@
                 <div class="logo-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                 </div>
-                <span class="logo-text">USTA<span>.AZ</span></span>
+                <span class="logo-text">USTA<span>.BİZ.AZ</span></span>
             </a>
 
             <nav class="nav">
@@ -102,7 +102,7 @@
             <div class="logo-icon" style="width:36px;height:36px;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
             </div>
-            <span class="logo-text">USTA<span>.AZ</span></span>
+            <span class="logo-text">USTA<span>.BİZ.AZ</span></span>
         </a>
         <div class="mobile-menu-close"><button class="close-btn" onclick="toggleMenu()">✕</button></div>
     </div>
@@ -139,7 +139,7 @@
                     <div class="logo-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                     </div>
-                    <span class="logo-text">USTA<span style="color:#FF6B35">.AZ</span></span>
+                    <span class="logo-text">USTA<span style="color:#FF6B35">.BİZ.AZ</span></span>
                 </a>
                 <p class="footer-desc">Bakı şəhərinin ən etibarlı ev texnikası təmir xidməti. 4+ il təcrübə, 4000+ uğurlu sifariş.</p>
                 <div class="footer-social">
@@ -182,7 +182,7 @@
                 </div>
                 <div class="footer-contact-item">
                     <div class="footer-contact-item-icon">✉️</div>
-                    <div><div class="footer-contact-label">E-poçt</div><div class="footer-contact-val">{{ \App\Models\Setting::get('email', 'info@ustam.az') }}</div></div>
+                    <div><div class="footer-contact-label">E-poçt</div><div class="footer-contact-val">{{ \App\Models\Setting::get('email', 'info@usta.biz.az') }}</div></div>
                 </div>
                 <div class="footer-contact-item">
                     <div class="footer-contact-item-icon">🕐</div>

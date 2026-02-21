@@ -51,7 +51,7 @@
             @csrf
             <div class="form-group">
                 <label class="form-label" for="email">E-poçt</label>
-                <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus placeholder="admin@ustam.az">
+                <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus placeholder="admin@usta.biz.az">
             </div>
             <div class="form-group">
                 <label class="form-label" for="password">Şifrə</label>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Əlaqə – USTAM.AZ')
+@section('title', 'Əlaqə – ' . \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ'))
 
 @section('content')
 
@@ -28,7 +28,7 @@
                     $addr = \App\Models\Setting::get('address', 'H. Zərdabi 78V, Bakı, Azərbaycan');
                     $phone = \App\Models\Setting::get('phone', '+994 55 234 56 78');
                     $phoneClean = preg_replace('/\D/', '', $phone);
-                    $email = \App\Models\Setting::get('email', 'info@ustam.az');
+                    $email = \App\Models\Setting::get('email', 'info@usta.biz.az');
                     $hours = \App\Models\Setting::get('working_hours', 'Hər gün: 08:00 – 22:00');
                     $whatsapp = \App\Models\Setting::get('whatsapp_url', 'https://wa.me/994552345678');
                     $facebook = \App\Models\Setting::get('facebook_url', '#');
@@ -155,7 +155,7 @@
         <div class="map-label">
             <div class="map-pin">📍</div>
             <div>
-                <strong>USTAM.AZ Mərkəzi Ofis</strong>
+                <strong>USTA.BİZ.AZ Mərkəzi Ofis</strong>
                 <span>{{ \App\Models\Setting::get('address', 'H. Zərdabi 78V, Bakı') }}</span>
             </div>
         </div>

@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Məzmun (HTML redaktor)</label>
-                    <textarea name="about_story_content" class="form-control summernote">{{ old('about_story_content', $s['about_story_content'] ?? '<p>USTAM.AZ 2012-ci ildə 3 nəfərlik kiçik bir komanda ilə fəaliyyətə başladı. Bu gün 50-dən çox sertifikatlı usta, 15 000-dən çox razı müştəri və Bakının bütün rayonlarını əhatə edən xidmət şəbəkəmiz var.</p><p>Bizim üçün hər sifariş yalnız bir iş deyil — bu, müştərimizin evinə olan hörmətimizdir. Orijinal hissələr, yazılı zəmanət, şəffaf qiymətlər — bunlar sadəcə söz deyil, bizim prinsiplərimizdir.</p>') }}</textarea>
+                    <textarea name="about_story_content" class="form-control summernote">{{ old('about_story_content', $s['about_story_content'] ?? '<p>USTA.BİZ.AZ 2012-ci ildə 3 nəfərlik kiçik bir komanda ilə fəaliyyətə başladı. Bu gün 50-dən çox sertifikatlı usta, 15 000-dən çox razı müştəri və Bakının bütün rayonlarını əhatə edən xidmət şəbəkəmiz var.</p><p>Bizim üçün hər sifariş yalnız bir iş deyil — bu, müştərimizin evinə olan hörmətimizdir. Orijinal hissələr, yazılı zəmanət, şəffaf qiymətlər — bunlar sadəcə söz deyil, bizim prinsiplərimizdir.</p>') }}</textarea>
                 </div>
             </div>
         </div>

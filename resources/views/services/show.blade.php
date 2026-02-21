@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $service->name . ' – USTAM.AZ')
+@section('title', $service->name . ' – ' . \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ'))
 
 @section('content')
 
