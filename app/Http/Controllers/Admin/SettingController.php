@@ -23,10 +23,10 @@ class SettingController extends Controller
             'address'          => ['nullable', 'string', 'max:255'],
             'email'            => ['nullable', 'email', 'max:255'],
             'working_hours'    => ['nullable', 'string', 'max:255'],
-            'facebook_url'     => ['nullable', 'url', 'max:255'],
-            'instagram_url'    => ['nullable', 'url', 'max:255'],
-            'whatsapp_url'     => ['nullable', 'url', 'max:255'],
-            'youtube_url'      => ['nullable', 'url', 'max:255'],
+            'facebook_url'     => ['nullable', 'string', 'max:255'],
+            'instagram_url'    => ['nullable', 'string', 'max:255'],
+            'whatsapp_url'     => ['nullable', 'string', 'max:255'],
+            'youtube_url'      => ['nullable', 'string', 'max:255'],
             'map_url'          => ['nullable', 'string', 'max:1000'],
         ]);
 
