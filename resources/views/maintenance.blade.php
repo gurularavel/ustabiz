@@ -114,14 +114,11 @@
 
         <div class="badge">
             <div class="badge-dot"></div>
-            Texniki baxım rejimi
+            {{ site_text('maintenance_badge', 'Texniki baxım rejimi') }}
         </div>
 
-        <h1>Sayt üzərində <span>işlər</span> aparılır</h1>
-        <p>
-            Hal-hazırda saytımız yeniləmə prosesindədir.<br>
-            Tezliklə yenidən xidmətinizdə olacağıq.
-        </p>
+        <h1>{!! site_text('maintenance_title', 'Sayt üzərində <span>işlər</span> aparılır') !!}</h1>
+        <p>{!! site_text('maintenance_desc', 'Hal-hazırda saytımız yeniləmə prosesindədir.<br>Tezliklə yenidən xidmətinizdə olacağıq.') !!}</p>
 
         <div class="divider"></div>
 
@@ -129,7 +126,7 @@
         @if($phone)
         <div class="contact-row">
             <span>📞</span>
-            <span>Təcili olaraq zəng edin:</span>
+            <span>{{ site_text('maintenance_call_label', 'Təcili olaraq zəng edin:') }}</span>
             <a href="tel:+{{ $phoneClean }}">{{ $phone }}</a>
         </div>
         @endif

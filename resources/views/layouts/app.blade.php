@@ -58,7 +58,7 @@
             <nav class="nav">
                 <div class="dropdown">
                     <a href="{{ route('services.index') }}" class="nav-link has-dropdown {{ request()->routeIs('services.*') ? 'active' : '' }}">
-                        Xidmətlər
+                        {{ site_text('ui_nav_services', 'Xidmətlər') }}
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
                     </a>
                     <div class="dropdown-menu">
@@ -70,21 +70,21 @@
                         @endforeach
                     </div>
                 </div>
-                <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">Haqqımızda</a>
-                <a href="{{ route('portfolio') }}" class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}">Portfolio</a>
-                <a href="{{ route('home') }}#how-it-works" class="nav-link">Necə işləyir</a>
-                <a href="{{ route('home') }}#faq" class="nav-link">FAQ</a>
-                <a href="{{ route('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Əlaqə</a>
+                <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">{{ site_text('ui_nav_about', 'Haqqımızda') }}</a>
+                <a href="{{ route('portfolio') }}" class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}">{{ site_text('ui_nav_portfolio', 'Portfolio') }}</a>
+                <a href="{{ route('home') }}#how-it-works" class="nav-link">{{ site_text('ui_nav_how', 'Necə işləyir') }}</a>
+                <a href="{{ route('home') }}#faq" class="nav-link">{{ site_text('ui_nav_faq', 'FAQ') }}</a>
+                <a href="{{ route('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">{{ site_text('ui_nav_contact', 'Əlaqə') }}</a>
             </nav>
 
             <div class="header-cta">
-                <a href="tel:0505552026" class="header-phone">
+                <a href="tel:{{ preg_replace('/\D/', '', \App\Models\Setting::get('phone', '0505552026')) }}" class="header-phone">
                     <div class="header-phone-icon">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A3161" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12 19.79 19.79 0 012.12 3.33A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                     </div>
-                    (050) 555-20-26
+                    {{ \App\Models\Setting::get('phone', '(050) 555-20-26') }}
                 </a>
-                <a href="{{ route('contact') }}" class="btn btn-primary">Sifariş et</a>
+                <a href="{{ route('contact') }}" class="btn btn-primary">{{ site_text('ui_order_btn', 'Sifariş et') }}</a>
             </div>
 
             <div class="burger" id="burgerBtn" onclick="toggleMenu()">
@@ -107,16 +107,16 @@
         <div class="mobile-menu-close"><button class="close-btn" onclick="toggleMenu()">✕</button></div>
     </div>
     <nav class="mobile-nav">
-        <a href="{{ route('services.index') }}" class="mobile-nav-link" onclick="toggleMenu()">🔧 Xidmətlər</a>
-        <a href="{{ route('about') }}" class="mobile-nav-link" onclick="toggleMenu()">ℹ️ Haqqımızda</a>
-        <a href="{{ route('portfolio') }}" class="mobile-nav-link" onclick="toggleMenu()">🖼️ Portfolio</a>
-        <a href="{{ route('home') }}#how-it-works" class="mobile-nav-link" onclick="toggleMenu()">📋 Necə işləyir</a>
-        <a href="{{ route('home') }}#faq" class="mobile-nav-link" onclick="toggleMenu()">❓ FAQ</a>
+        <a href="{{ route('services.index') }}" class="mobile-nav-link" onclick="toggleMenu()">🔧 {{ site_text('ui_nav_services', 'Xidmətlər') }}</a>
+        <a href="{{ route('about') }}" class="mobile-nav-link" onclick="toggleMenu()">ℹ️ {{ site_text('ui_nav_about', 'Haqqımızda') }}</a>
+        <a href="{{ route('portfolio') }}" class="mobile-nav-link" onclick="toggleMenu()">🖼️ {{ site_text('ui_nav_portfolio', 'Portfolio') }}</a>
+        <a href="{{ route('home') }}#how-it-works" class="mobile-nav-link" onclick="toggleMenu()">📋 {{ site_text('ui_nav_how', 'Necə işləyir') }}</a>
+        <a href="{{ route('home') }}#faq" class="mobile-nav-link" onclick="toggleMenu()">❓ {{ site_text('ui_nav_faq', 'FAQ') }}</a>
         <div class="mobile-nav-divider"></div>
-        <a href="{{ route('contact') }}" class="mobile-nav-link" onclick="toggleMenu()">📞 Əlaqə</a>
+        <a href="{{ route('contact') }}" class="mobile-nav-link" onclick="toggleMenu()">📞 {{ site_text('ui_nav_contact', 'Əlaqə') }}</a>
     </nav>
     <div class="mobile-contact">
-        <p>Bizimlə əlaqə saxlayın:</p>
+        <p>{{ site_text('ui_mobile_contact_title', 'Bizimlə əlaqə saxlayın:') }}</p>
         <a href="tel:{{ preg_replace('/\D/', '', \App\Models\Setting::get('phone', '0505552026')) }}"
            class="btn btn-primary"
            style="font-size:15px;padding:14px 20px;width:100%;justify-content:center;">
@@ -141,7 +141,7 @@
                     </div>
                     <span class="logo-text">USTA<span style="color:#FF6B35">.BİZ.AZ</span></span>
                 </a>
-                <p class="footer-desc">Bakı şəhərinin ən etibarlı ev texnikası təmir xidməti. 4+ il təcrübə, 4000+ uğurlu sifariş.</p>
+                <p class="footer-desc">{{ site_text('ui_footer_desc', 'Bakı şəhərinin ən etibarlı ev texnikası təmir xidməti. 4+ il təcrübə, 4000+ uğurlu sifariş.') }}</p>
                 <div class="footer-social">
                     <a href="{{ \App\Models\Setting::get('facebook_url', '#') }}" class="social-link" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
                     <a href="{{ \App\Models\Setting::get('instagram_url', '#') }}" class="social-link" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg></a>
@@ -151,18 +151,18 @@
             </div>
 
             <div class="footer-col">
-                <h4>Keçidlər</h4>
+                <h4>{{ site_text('ui_footer_links_title', 'Keçidlər') }}</h4>
                 <div class="footer-links">
-                    <a href="{{ route('services.index') }}" class="footer-link">Xidmətlər</a>
-                    <a href="{{ route('about') }}" class="footer-link">Haqqımızda</a>
-                    <a href="{{ route('home') }}#how-it-works" class="footer-link">Necə işləyir</a>
-                    <a href="{{ route('home') }}#faq" class="footer-link">FAQ</a>
-                    <a href="{{ route('contact') }}" class="footer-link">Əlaqə</a>
+                    <a href="{{ route('services.index') }}" class="footer-link">{{ site_text('ui_nav_services', 'Xidmətlər') }}</a>
+                    <a href="{{ route('about') }}" class="footer-link">{{ site_text('ui_nav_about', 'Haqqımızda') }}</a>
+                    <a href="{{ route('home') }}#how-it-works" class="footer-link">{{ site_text('ui_nav_how', 'Necə işləyir') }}</a>
+                    <a href="{{ route('home') }}#faq" class="footer-link">{{ site_text('ui_nav_faq', 'FAQ') }}</a>
+                    <a href="{{ route('contact') }}" class="footer-link">{{ site_text('ui_nav_contact', 'Əlaqə') }}</a>
                 </div>
             </div>
 
             <div class="footer-col">
-                <h4>Xidmətlər</h4>
+                <h4>{{ site_text('ui_footer_services_title', 'Xidmətlər') }}</h4>
                 <div class="footer-links">
                     @foreach(\App\Models\Service::where('is_active',true)->orderBy('sort_order')->take(6)->get() as $s)
                     <a href="{{ route('services.show', $s->slug) }}" class="footer-link">{{ $s->name }}</a>
@@ -171,39 +171,45 @@
             </div>
 
             <div class="footer-col">
-                <h4>Əlaqə</h4>
+                <h4>{{ site_text('ui_footer_contact_title', 'Əlaqə') }}</h4>
                 <div class="footer-contact-item">
                     <div class="footer-contact-item-icon">📍</div>
-                    <div><div class="footer-contact-label">Ünvan</div><div class="footer-contact-val">{{ \App\Models\Setting::get('address', 'H. Zərdabi 78V, Bakı') }}</div></div>
+                    <div><div class="footer-contact-label">{{ site_text('ui_label_address', 'Ünvan') }}</div><div class="footer-contact-val">{{ \App\Models\Setting::get('address', 'H. Zərdabi 78V, Bakı') }}</div></div>
                 </div>
                 <div class="footer-contact-item">
                     <div class="footer-contact-item-icon">📞</div>
-                    <div><div class="footer-contact-label">Telefon</div><div class="footer-contact-val">{{ \App\Models\Setting::get('phone', '(050) 555-20-26') }}</div></div>
+                    <div><div class="footer-contact-label">{{ site_text('ui_label_phone', 'Telefon') }}</div><div class="footer-contact-val">{{ \App\Models\Setting::get('phone', '(050) 555-20-26') }}</div></div>
                 </div>
                 <div class="footer-contact-item">
                     <div class="footer-contact-item-icon">✉️</div>
-                    <div><div class="footer-contact-label">E-poçt</div><div class="footer-contact-val">{{ \App\Models\Setting::get('email', 'info@usta.biz.az') }}</div></div>
+                    <div><div class="footer-contact-label">{{ site_text('ui_label_email', 'E-poçt') }}</div><div class="footer-contact-val">{{ \App\Models\Setting::get('email', 'info@usta.biz.az') }}</div></div>
                 </div>
                 <div class="footer-contact-item">
                     <div class="footer-contact-item-icon">🕐</div>
-                    <div><div class="footer-contact-label">İş saatları</div><div class="footer-contact-val">{{ \App\Models\Setting::get('working_hours', 'Hər gün 08:00 – 22:00') }}</div></div>
+                    <div><div class="footer-contact-label">{{ site_text('ui_label_hours', 'İş saatları') }}</div><div class="footer-contact-val">{{ \App\Models\Setting::get('working_hours', 'Hər gün 08:00 – 22:00') }}</div></div>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© {{ date('Y') }} USTA.BİZ.AZ — Bütün hüquqlar qorunur.</p>
+            <p>{{ str_replace(':year', date('Y'), site_text('ui_footer_copyright', '© :year USTA.BİZ.AZ — Bütün hüquqlar qorunur.')) }}</p>
             <div class="footer-bottom-links">
-                <a href="#">Məxfilik siyasəti</a>
-                <a href="#">İstifadə şərtləri</a>
+                <a href="#">{{ site_text('ui_footer_privacy', 'Məxfilik siyasəti') }}</a>
+                <a href="#">{{ site_text('ui_footer_terms', 'İstifadə şərtləri') }}</a>
             </div>
         </div>
     </div>
 </footer>
 
 {{-- FLOATING CALL BUTTON --}}
+@php
+    $waPhone = preg_replace('/\D/', '', \App\Models\Setting::get('phone', '0505552026'));
+    if ($waPhone && str_starts_with($waPhone, '0')) {
+        $waPhone = '994' . ltrim($waPhone, '0');
+    }
+@endphp
 <div class="float-call">
-    <a href="tel:0505552026" title="Zəng edin">
+    <a href="{{ $waPhone ? 'https://wa.me/' . $waPhone : '#' }}" title="{{ site_text('ui_float_whatsapp_title', 'WhatsApp-a yazın') }}" target="_blank" rel="noopener">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12 19.79 19.79 0 012.12 3.33A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
     </a>
 </div>

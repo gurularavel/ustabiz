@@ -38,6 +38,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('faqs', Admin\FaqController::class)->except(['show']);
     Route::get('settings', [Admin\SettingController::class, 'index'])->name('settings');
     Route::put('settings', [Admin\SettingController::class, 'update'])->name('settings.update');
+    Route::get('texts', [Admin\TextController::class, 'index'])->name('texts.index');
+    Route::put('texts', [Admin\TextController::class, 'update'])->name('texts.update');
 
     Route::get('pages/hero', [Admin\PageController::class, 'heroEdit'])->name('pages.hero');
     Route::put('pages/hero', [Admin\PageController::class, 'heroUpdate'])->name('pages.hero.update');

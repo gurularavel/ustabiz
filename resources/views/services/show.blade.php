@@ -8,9 +8,9 @@
 <section class="service-hero">
     <div class="container">
         <nav class="breadcrumb">
-            <a href="{{ route('home') }}">Ana səhifə</a>
+            <a href="{{ route('home') }}">{{ site_text('about_breadcrumb_home', 'Ana səhifə') }}</a>
             <span class="breadcrumb-sep">›</span>
-            <a href="{{ route('services.index') }}">Xidmətlər</a>
+            <a href="{{ route('services.index') }}">{{ site_text('ui_nav_services', 'Xidmətlər') }}</a>
             <span class="breadcrumb-sep">›</span>
             <span>{{ $service->name }}</span>
         </nav>
@@ -29,38 +29,39 @@
                         <div class="check-circle">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                         </div>
-                        Pulsuz diaqnostika
+                        {{ site_text('service_show_badge_diagnosis', 'Pulsuz diaqnostika') }}
                     </div>
                     <div class="service-hero-feature">
                         <div class="check-circle">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                         </div>
-                        12 ay yazılı zəmanət
+                        {{ site_text('service_show_badge_warranty', '12 ay yazılı zəmanət') }}
                     </div>
                     <div class="service-hero-feature">
                         <div class="check-circle">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                         </div>
-                        Sifarişdən 2 saata usta
+                        {{ site_text('service_show_badge_fast', 'Sifarişdən 2 saata usta') }}
                     </div>
                     <div class="service-hero-feature">
                         <div class="check-circle">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                         </div>
-                        Orijinal ehtiyat hissələri
+                        {{ site_text('service_show_badge_parts', 'Orijinal ehtiyat hissələri') }}
                     </div>
                 </div>
                 <div class="service-hero-btns">
-                    <a href="tel:+994552345678" class="btn btn-primary">
-                        📞 Zəng et
+                    @php $phone = \App\Models\Setting::get('phone', '+994 55 234 56 78'); $phoneClean = preg_replace('/\D/', '', $phone); @endphp
+                    <a href="tel:+{{ $phoneClean }}" class="btn btn-primary">
+                        {{ site_text('service_show_call_btn', '📞 Zəng et') }}
                     </a>
                     <a href="#sifaris" class="btn btn-outline">
-                        Sifariş ver →
+                        {{ site_text('service_show_order_btn', 'Sifariş ver →') }}
                     </a>
                 </div>
                 <div class="price-badge">
                     <div>
-                        <div class="price-badge-label">Başlanğıc qiymət</div>
+                        <div class="price-badge-label">{{ site_text('service_show_price_label', 'Başlanğıc qiymət') }}</div>
                         <div class="price-badge-value">{{ $service->price_from }} AZN</div>
                     </div>
                 </div>
@@ -69,31 +70,31 @@
             {{-- QUICK ORDER CARD --}}
             <div class="quick-order-card" id="sifaris">
                 <div class="qo-header">
-                    <h3>Sifariş ver</h3>
-                    <p>Pulsuz diaqnostika + 12 ay zəmanət</p>
+                    <h3>{{ site_text('service_show_form_title', 'Sifariş ver') }}</h3>
+                    <p>{{ site_text('service_show_form_subtitle', 'Pulsuz diaqnostika + 12 ay zəmanət') }}</p>
                 </div>
                 <div class="qo-body">
                     <form id="serviceOrderForm">
                         @csrf
                         <input type="hidden" name="service_id" value="{{ $service->id }}">
                         <div class="form-group">
-                            <label>Adınız</label>
-                            <input type="text" name="name" class="form-control" placeholder="Ad Soyad">
+                            <label>{{ site_text('home_form_name_label', 'Adınız') }}</label>
+                            <input type="text" name="name" class="form-control" placeholder="{{ site_text('home_form_name_placeholder', 'Ad Soyad') }}">
                         </div>
                         <div class="form-group">
-                            <label>Telefon *</label>
+                            <label>{{ site_text('home_form_phone_label', 'Telefon *') }}</label>
                             <input type="tel" name="phone" class="form-control" placeholder="+994 XX XXX XX XX" data-phone required>
                         </div>
                         <div class="form-group">
-                            <label>Ünvan</label>
-                            <input type="text" name="address" class="form-control" placeholder="Küçə, ev nömrəsi">
+                            <label>{{ site_text('home_form_address_label', 'Ünvan') }}</label>
+                            <input type="text" name="address" class="form-control" placeholder="{{ site_text('home_form_address_placeholder', 'Küçə, ev nömrəsi') }}">
                         </div>
                         <div class="form-group">
-                            <label>Problem haqqında</label>
-                            <textarea name="note" class="form-control" rows="3" placeholder="Problemin qısa təsviri..."></textarea>
+                            <label>{{ site_text('home_contact_note_label', 'Qeyd') }}</label>
+                            <textarea name="note" class="form-control" rows="3" placeholder="{{ site_text('service_show_problem_placeholder', 'Problemin qısa təsviri...') }}"></textarea>
                         </div>
                         <button type="button" class="btn btn-primary" onclick="submitServiceOrder()" style="width:100%;justify-content:center;padding:15px">
-                            Usta Çağır – Pulsuz Diaqnostika
+                            {{ site_text('home_form_submit', 'Usta Çağır – Pulsuz') }}
                         </button>
                     </form>
                 </div>
@@ -110,8 +111,8 @@
 <section class="section section-alt">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">🔍 Problemlər</div>
-            <h2>Hansı problemləri həll edirik?</h2>
+            <div class="section-label">{{ site_text('service_show_problem_label', 'Problemlər') }}</div>
+            <h2>{{ site_text('service_show_problem_title', 'Hansı problemləri həll edirik?') }}</h2>
             <p>{{ $service->name }} ilə bağlı ən çox rast gəlinən problemlər.</p>
         </div>
         <div class="problems-grid">
@@ -133,34 +134,34 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">📋 Proses</div>
-            <h2>Necə işləyirik?</h2>
-            <p>Sadə, şəffaf, rahat. Sifarişdən işin tamamlanmasına qədər 4 addım.</p>
+            <div class="section-label">{{ site_text('service_show_process_label', 'Proses') }}</div>
+            <h2>{{ site_text('service_show_process_title', 'Necə işləyirik?') }}</h2>
+            <p>{{ site_text('service_show_process_desc', 'Sadə, şəffaf, rahat. Sifarişdən işin tamamlanmasına qədər 4 addım.') }}</p>
         </div>
         <div class="process-grid">
             <div class="process-step fade-in">
                 <div class="process-num">1</div>
                 <div style="font-size:30px;margin-bottom:12px">📞</div>
-                <h4>Zəng / Sifariş</h4>
-                <p>Zəng edin və ya formu doldurun. Operator 5 dəqiqəyə cavab verir.</p>
+                <h4>{{ site_text('service_show_step1_title', 'Zəng / Sifariş') }}</h4>
+                <p>{{ site_text('service_show_step1_desc', 'Zəng edin və ya formu doldurun. Operator 5 dəqiqəyə cavab verir.') }}</p>
             </div>
             <div class="process-step fade-in" style="animation-delay:.1s">
                 <div class="process-num">2</div>
                 <div style="font-size:30px;margin-bottom:12px">🚗</div>
-                <h4>Usta gəlir</h4>
-                <p>1-2 saata sertifikatlı usta evinizə gəlir.</p>
+                <h4>{{ site_text('service_show_step2_title', 'Usta gəlir') }}</h4>
+                <p>{{ site_text('service_show_step2_desc', '1-2 saata sertifikatlı usta evinizə gəlir.') }}</p>
             </div>
             <div class="process-step fade-in" style="animation-delay:.2s">
                 <div class="process-num">3</div>
                 <div style="font-size:30px;margin-bottom:12px">🔍</div>
-                <h4>Pulsuz diaqnostika</h4>
-                <p>Problem müəyyən edilir, qiymət söylənir. Razılıq olmasa ödəniş yoxdur.</p>
+                <h4>{{ site_text('service_show_step3_title', 'Pulsuz diaqnostika') }}</h4>
+                <p>{{ site_text('service_show_step3_desc', 'Problem müəyyən edilir, qiymət söylənir. Razılıq olmasa ödəniş yoxdur.') }}</p>
             </div>
             <div class="process-step fade-in" style="animation-delay:.3s">
                 <div class="process-num">4</div>
                 <div style="font-size:30px;margin-bottom:12px">✅</div>
-                <h4>Təmir + Zəmanət</h4>
-                <p>İş tamamlanır, 12 aylıq yazılı zəmanət verilir.</p>
+                <h4>{{ site_text('service_show_step4_title', 'Təmir + Zəmanət') }}</h4>
+                <p>{{ site_text('service_show_step4_desc', 'İş tamamlanır, 12 aylıq yazılı zəmanət verilir.') }}</p>
             </div>
         </div>
     </div>
@@ -170,29 +171,29 @@
 <section class="section section-alt">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">⭐ Üstünlüklər</div>
+            <div class="section-label">{{ site_text('service_show_adv_label', '⭐ Üstünlüklər') }}</div>
             <h2>{{ $service->name }} üzrə üstünlüklərimiz</h2>
         </div>
         <div class="service-adv-grid">
             <div class="service-adv-card fade-in">
                 <div class="service-adv-icon">💰</div>
-                <h4>Sərfəli qiymət</h4>
-                <p>{{ $service->price_from }} AZN-dən başlayan qiymətlər. Gizli ödəniş yoxdur.</p>
+                <h4>{{ site_text('service_show_adv1_title', 'Sərfəli qiymət') }}</h4>
+                <p>{{ str_replace(':price', $service->price_from, site_text('service_show_adv1_desc', ':price AZN-dən başlayan qiymətlər. Gizli ödəniş yoxdur.')) }}</p>
             </div>
             <div class="service-adv-card fade-in" style="animation-delay:.1s">
                 <div class="service-adv-icon">🏆</div>
-                <h4>12 ay zəmanət</h4>
-                <p>Bütün işlərə yazılı zəmanət. Eyni problem yenidən olarsa – pulsuz.</p>
+                <h4>{{ site_text('service_show_adv2_title', '12 ay zəmanət') }}</h4>
+                <p>{{ site_text('service_show_adv2_desc', 'Bütün işlərə yazılı zəmanət. Eyni problem yenidən olarsa – pulsuz.') }}</p>
             </div>
             <div class="service-adv-card fade-in" style="animation-delay:.2s">
                 <div class="service-adv-icon">⚙️</div>
-                <h4>Orijinal hissələr</h4>
-                <p>Yalnız orijinal ehtiyat hissələri. Keyfiyyətsiz hissə istifadə olunmur.</p>
+                <h4>{{ site_text('service_show_adv3_title', 'Orijinal hissələr') }}</h4>
+                <p>{{ site_text('service_show_adv3_desc', 'Yalnız orijinal ehtiyat hissələri. Keyfiyyətsiz hissə istifadə olunmur.') }}</p>
             </div>
             <div class="service-adv-card fade-in" style="animation-delay:.3s">
                 <div class="service-adv-icon">👨‍🔧</div>
-                <h4>Peşəkar ustalar</h4>
-                <p>4+ il təcrübəsi olan sertifikatlı ustalar. Hər usta sahə mütəxəssisidir.</p>
+                <h4>{{ site_text('service_show_adv4_title', 'Peşəkar ustalar') }}</h4>
+                <p>{{ site_text('service_show_adv4_desc', '4+ il təcrübəsi olan sertifikatlı ustalar. Hər usta sahə mütəxəssisidir.') }}</p>
             </div>
         </div>
     </div>
@@ -203,9 +204,9 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">🤝 Brendlər</div>
-            <h2>Hansı markaları təmir edirik?</h2>
-            <p>{{ $service->name }} üzrə xidmət göstərdiyimiz aparıcı dünya markaları.</p>
+            <div class="section-label">{{ site_text('service_show_brands_label', '🤝 Brendlər') }}</div>
+            <h2>{{ site_text('service_show_brands_title', 'Hansı markaları təmir edirik?') }}</h2>
+            <p>{{ str_replace(':service', $service->name, site_text('service_show_brands_desc', ':service üzrə xidmət göstərdiyimiz aparıcı dünya markaları.')) }}</p>
         </div>
         <div class="brands-grid">
             @foreach($service->brands as $brand)
@@ -222,7 +223,7 @@
     <div class="container">
         <div class="section-header">
             <div class="section-label">❓ FAQ</div>
-            <h2>Tez-tez verilən suallar</h2>
+            <h2>{{ site_text('service_show_faq_title', 'Tez-tez verilən suallar') }}</h2>
         </div>
         <div class="faq-list">
             @foreach($service->faqs as $i => $faq)
@@ -246,8 +247,8 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">🔧 Digər xidmətlər</div>
-            <h2>Digər xidmətlərimiz</h2>
+            <div class="section-label">{{ site_text('service_show_other_label', '🔧 Digər xidmətlər') }}</div>
+            <h2>{{ site_text('service_show_other_title', 'Digər xidmətlərimiz') }}</h2>
         </div>
         <div class="other-services-grid">
             @foreach($otherServices->take(8) as $other)
@@ -265,11 +266,11 @@
 <section class="section section-alt">
     <div class="container">
         <div class="service-cta">
-            <h2>{{ $service->name }} üçün indi usta çağırın!</h2>
-            <p>Pulsuz diaqnostika, {{ $service->price_from }} AZN-dən başlayan qiymətlər, 12 ay zəmanət.<br>Bakının bütün rayonlarına gedirik.</p>
+            <h2>{{ $service->name }} {{ site_text('service_show_cta_suffix', 'üçün indi usta çağırın!') }}</h2>
+            <p>{{ str_replace(':price', $service->price_from, site_text('service_show_cta_desc', 'Pulsuz diaqnostika, :price AZN-dən başlayan qiymətlər, 12 ay zəmanət. Bakının bütün rayonlarına gedirik.')) }}</p>
             <div class="service-cta-btns">
-                <a href="tel:+994552345678" class="btn-white">📞 +994 55 234 56 78</a>
-                <a href="#sifaris" class="btn btn-outline">Sifariş ver →</a>
+                <a href="tel:+{{ $phoneClean }}" class="btn-white">📞 {{ $phone }}</a>
+                <a href="#sifaris" class="btn btn-outline">{{ site_text('service_show_order_btn', 'Sifariş ver →') }}</a>
             </div>
         </div>
     </div>
@@ -297,13 +298,13 @@ function submitServiceOrder() {
     .then(r => r.json())
     .then(res => {
         if (res.success) {
-            alert('Müraciətiniz qəbul edildi! Operator sizinlə ən qısa zamanda əlaqə saxlayacaq.');
+            alert(@json(site_text('alert_success', 'Müraciətiniz qəbul edildi! Operator sizinlə ən qısa zamanda əlaqə saxlayacaq.')));
             form.reset();
         } else {
-            alert('Zəhmət olmasa telefon nömrənizi daxil edin.');
+            alert(@json(site_text('alert_phone_required', 'Zəhmət olmasa telefon nömrənizi daxil edin.')));
         }
     })
-    .catch(() => alert('Xəta baş verdi. Birbaşa zəng edin: +994 55 234 56 78'));
+    .catch(() => alert(@json(site_text('alert_generic_error', 'Xəta baş verdi. Zəhmət olmasa birbaşa zəng edin.'))));
 }
 </script>
 @endpush

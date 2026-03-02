@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Portfolio – ' . \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ'))
+@section('title', site_text('page_title_portfolio', 'Portfolio') . ' – ' . \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ'))
 
 @section('content')
 
@@ -8,12 +8,12 @@
 <section class="page-hero">
     <div class="container">
         <nav class="breadcrumb">
-            <a href="{{ route('home') }}">Ana səhifə</a>
+            <a href="{{ route('home') }}">{{ site_text('about_breadcrumb_home', 'Ana səhifə') }}</a>
             <span class="breadcrumb-sep">›</span>
-            <span>Portfolio</span>
+            <span>{{ site_text('ui_nav_portfolio', 'Portfolio') }}</span>
         </nav>
-        <h1>Bizim işlərimiz</h1>
-        <p>Hər iş öz sözünü özü danışır. Gördüyümüz təmirlərdən seçmə nümunələr.</p>
+        <h1>{{ site_text('portfolio_title', 'Bizim işlərimiz') }}</h1>
+        <p>{{ site_text('portfolio_desc', 'Hər iş öz sözünü özü danışır. Gördüyümüz təmirlərdən seçmə nümunələr.') }}</p>
     </div>
 </section>
 
@@ -22,7 +22,7 @@
 <section style="background:var(--bg);padding:20px 0;border-bottom:1px solid var(--border);">
     <div class="container">
         <div class="pf-filters">
-            <a href="{{ route('portfolio') }}" class="pf-filter {{ !$serviceId ? 'active' : '' }}">Hamısı</a>
+            <a href="{{ route('portfolio') }}" class="pf-filter {{ !$serviceId ? 'active' : '' }}">{{ site_text('portfolio_filter_all', 'Hamısı') }}</a>
             @foreach($services as $srv)
             <a href="{{ route('portfolio', ['service' => $srv->id]) }}"
                class="pf-filter {{ $serviceId == $srv->id ? 'active' : '' }}">
@@ -51,7 +51,7 @@
                     @if($item->youtube_id)
                     <button class="pf-play-btn"
                             onclick="pfPlay({{ $item->id }}, '{{ $item->embed_url }}', {{ $item->is_short ? 'true' : 'false' }})"
-                            aria-label="Videonu oynat">
+                            aria-label="{{ site_text('portfolio_video_play_aria', 'Videonu oynat') }}">
                         <div class="pf-play-icon">
                             <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
                         </div>
@@ -65,7 +65,7 @@
                     @if($item->youtube_id)
                     <span class="pf-yt-badge">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M23 7s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.2 2.7 12 2.7 12 2.7s-4.2 0-6.8.2c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.1.7 11.3v2c0 2.1.3 4.3.3 4.3s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.2 21.8 12 21.8 12 21.8s4.2 0 6.8-.3c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.1.3-4.3v-2C23.3 9.1 23 7 23 7zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/></svg>
-                        {{ $item->is_short ? 'Shorts' : 'YouTube' }}
+                        {{ $item->is_short ? site_text('portfolio_badge_shorts', 'Shorts') : site_text('portfolio_badge_youtube', 'YouTube') }}
                     </span>
                     @endif
                 </div>
@@ -89,7 +89,7 @@
         @else
         <div style="text-align:center;padding:80px 0;color:var(--text-muted);">
             <div style="font-size:48px;margin-bottom:16px;">🔧</div>
-            <p style="font-size:16px;">Portfolio hələ əlavə edilməyib.</p>
+            <p style="font-size:16px;">{{ site_text('portfolio_empty_title', 'Portfolio hələ əlavə edilməyib.') }}</p>
         </div>
         @endif
     </div>
@@ -98,7 +98,7 @@
 {{-- VIDEO MODAL --}}
 <div class="pf-video-modal" id="pfModal" onclick="pfModalClose(event)">
     <div class="pf-modal-inner" id="pfModalInner">
-        <button class="pf-modal-close" onclick="pfClose()" aria-label="Bağla">✕</button>
+        <button class="pf-modal-close" onclick="pfClose()" aria-label="{{ site_text('portfolio_modal_close_aria', 'Bağla') }}">✕</button>
         <div class="pf-modal-video" id="pfModalVideo"></div>
     </div>
 </div>

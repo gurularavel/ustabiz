@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Haqqımızda – ' . \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ'))
+@section('title', site_text('page_title_about', 'Haqqımızda') . ' – ' . \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ'))
 
 @section('content')
 
@@ -8,7 +8,7 @@
 <section class="page-hero">
     <div class="container">
         <nav class="breadcrumb">
-            <a href="{{ route('home') }}">Ana səhifə</a>
+            <a href="{{ route('home') }}">{{ site_text('about_breadcrumb_home', 'Ana səhifə') }}</a>
             <span class="breadcrumb-sep">›</span>
             <span>{{ $s['about_hero_title'] ?? 'Haqqımızda' }}</span>
         </nav>
@@ -66,7 +66,7 @@
 <section class="section section-alt">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">👨‍🔧 Komanda</div>
+            <div class="section-label">{{ site_text('about_team_label', '👨‍🔧 Komanda') }}</div>
             <h2>{{ $s['about_team_title'] ?? 'Peşəkar komandamız' }}</h2>
             <p>{{ $s['about_team_desc'] ?? 'Hər usta öz sahəsinin mütəxəssisidir. Minimum 4 il iş təcrübəsi tələb edirik.' }}</p>
         </div>
@@ -79,7 +79,7 @@
                 <p>{{ $member->experience }}</p>
             </div>
             @empty
-            <p style="color:#9ca3af;font-size:14px;">Komanda üzvü əlavə edilməyib.</p>
+            <p style="color:#9ca3af;font-size:14px;">{{ site_text('about_team_empty', 'Komanda üzvü əlavə edilməyib.') }}</p>
             @endforelse
         </div>
     </div>
@@ -89,16 +89,16 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">📜 Sertifikatlar</div>
-            <h2>Rəsmi sertifikatlar</h2>
-            <p>Ustalarımız dünya markalarının rəsmi xidmət mərkəzlərindən sertifikat almışdır.</p>
+            <div class="section-label">{{ site_text('about_cert_label', '📜 Sertifikatlar') }}</div>
+            <h2>{{ site_text('about_cert_title', 'Rəsmi sertifikatlar') }}</h2>
+            <p>{{ site_text('about_cert_desc', 'Ustalarımız dünya markalarının rəsmi xidmət mərkəzlərindən sertifikat almışdır.') }}</p>
         </div>
         <div class="cert-grid">
             @foreach(['Samsung', 'LG', 'Bosch', 'Arçelik', 'Siemens', 'Mitsubishi'] as $brand)
             <div class="cert-card fade-in">
                 <div class="cert-icon">🏅</div>
                 <strong>{{ $brand }}</strong>
-                <span>Rəsmi Servis Sertifikatı</span>
+                <span>{{ site_text('about_cert_suffix', 'Rəsmi Servis Sertifikatı') }}</span>
             </div>
             @endforeach
         </div>
@@ -113,7 +113,7 @@
             <p>{{ $s['about_cta_desc'] ?? 'Texnikanız üçün peşəkar yardıma ehtiyacınız varsa, biz buradayıq.' }}</p>
             <div class="service-cta-btns">
                 <a href="tel:{{ preg_replace('/\D/', '', \App\Models\Setting::get('phone', '0505552026')) }}" class="btn-white">📞 {{ \App\Models\Setting::get('phone', '(050) 555-20-26') }}</a>
-                <a href="{{ route('home') }}#elaqe" class="btn btn-outline">Sifariş ver →</a>
+                <a href="{{ route('home') }}#elaqe" class="btn btn-outline">{{ site_text('about_cta_order_btn', 'Sifariş ver →') }}</a>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Bütün Xidmətlər – ' . \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ'))
+@section('title', site_text('page_title_services', 'Bütün Xidmətlər') . ' – ' . \App\Models\Setting::get('site_title', 'USTA.BİZ.AZ'))
 
 @section('content')
 
@@ -8,12 +8,12 @@
 <section class="page-hero">
     <div class="container">
         <nav class="breadcrumb">
-            <a href="{{ route('home') }}">Ana səhifə</a>
+            <a href="{{ route('home') }}">{{ site_text('about_breadcrumb_home', 'Ana səhifə') }}</a>
             <span class="breadcrumb-sep">›</span>
-            <span>Xidmətlər</span>
+            <span>{{ site_text('ui_nav_services', 'Xidmətlər') }}</span>
         </nav>
-        <h1>Xidmətlərimiz</h1>
-        <p>Bakıda bütün ev texnikasının peşəkar təmiri. 12 xidmət növü, 40+ marka, pulsuz diaqnostika.</p>
+        <h1>{{ site_text('services_page_title', 'Xidmətlərimiz') }}</h1>
+        <p>{{ site_text('services_page_desc', 'Bakıda bütün ev texnikasının peşəkar təmiri. 12 xidmət növü, 40+ marka, pulsuz diaqnostika.') }}</p>
     </div>
 </section>
 
@@ -32,16 +32,16 @@
                     <div class="sl-meta">
                         <span class="sl-price">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                            {{ $service->price_from }} AZN-dən başlayır
+                            {{ $service->price_from }} {{ site_text('services_card_from', 'AZN-dən başlayır') }}
                         </span>
                         <span class="sl-guarantee">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            12 ay zəmanət
+                            {{ site_text('services_card_warranty', '12 ay zəmanət') }}
                         </span>
                     </div>
                 </div>
                 <div class="sl-card-arrow">
-                    <span>Ətraflı →</span>
+                    <span>{{ site_text('services_card_more', 'Ətraflı →') }}</span>
                 </div>
             </a>
             @endforeach
@@ -53,11 +53,12 @@
 <section class="section section-alt">
     <div class="container">
         <div class="service-cta">
-            <h2>Texnikanız xarabdır?</h2>
-            <p>İndi zəng edin, 2 saata usta evinizə gəlsin. Pulsuz diaqnostika, 12 ay zəmanət.</p>
+            <h2>{{ site_text('services_cta_title', 'Texnikanız xarabdır?') }}</h2>
+            <p>{{ site_text('services_cta_desc', 'İndi zəng edin, 2 saata usta evinizə gəlsin. Pulsuz diaqnostika, 12 ay zəmanət.') }}</p>
             <div class="service-cta-btns">
-                <a href="tel:+994552345678" class="btn-white">📞 +994 55 234 56 78</a>
-                <a href="{{ route('home') }}#elaqe" class="btn btn-outline">Sifariş ver →</a>
+                @php $phone = \App\Models\Setting::get('phone', '+994 55 234 56 78'); $phoneClean = preg_replace('/\D/', '', $phone); @endphp
+                <a href="tel:+{{ $phoneClean }}" class="btn-white">📞 {{ $phone }}</a>
+                <a href="{{ route('home') }}#elaqe" class="btn btn-outline">{{ site_text('services_cta_order_btn', 'Sifariş ver →') }}</a>
             </div>
         </div>
     </div>

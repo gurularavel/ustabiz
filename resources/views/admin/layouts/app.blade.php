@@ -288,6 +288,9 @@
         <a href="{{ route('admin.settings') }}" class="sidebar-link {{ request()->routeIs('admin.settings*') ? 'active' : '' }}">
             <span class="icon">⚙️</span> Tənzimləmələr
         </a>
+        <a href="{{ route('admin.texts.index') }}" class="sidebar-link {{ request()->routeIs('admin.texts*') ? 'active' : '' }}">
+            <span class="icon">📝</span> Mətn İdarəetməsi
+        </a>
     </nav>
 
     <div class="sidebar-footer">

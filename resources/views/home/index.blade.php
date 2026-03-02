@@ -41,7 +41,11 @@
                         <div class="trust-avatar" style="background:#0A3161">L</div>
                         <div class="trust-avatar" style="background:#22C55E">R</div>
                     </div>
-                    <p>Son 7 gündə <strong>{{ \App\Models\Setting::get('hero_trust_count', '240+') }}</strong> müştəriyə xidmət göstərdik</p>
+                    @php
+                        $heroTrustCount = \App\Models\Setting::get('hero_trust_count', '240+');
+                        $heroTrustText = str_replace(':count', $heroTrustCount, site_text('home_hero_trust_text', 'Son 7 gündə :count müştəriyə xidmət göstərdik'));
+                    @endphp
+                    <p>{!! str_replace($heroTrustCount, '<strong>' . e($heroTrustCount) . '</strong>', e($heroTrustText)) !!}</p>
                 </div>
             </div>
             <div class="hero-form-wrap fade-in" style="animation-delay:0.2s">
@@ -56,9 +60,9 @@
                     <form class="hf-body" id="orderForm">
                         @csrf
                         <div class="form-group">
-                            <label>Xidmət növü</label>
+                            <label>{{ site_text('home_form_service_label', 'Xidmət növü') }}</label>
                             <select name="service_id" class="form-control" required>
-                                <option value="">Xidmət seçin...</option>
+                                <option value="">{{ site_text('home_form_service_placeholder', 'Xidmət seçin...') }}</option>
                                 @foreach($services as $service)
                                     <option value="{{ $service->id }}">{{ $service->icon }} {{ $service->name }}</option>
                                 @endforeach
@@ -66,26 +70,26 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Adınız</label>
-                                <input type="text" name="name" class="form-control" placeholder="Ad Soyad">
+                                <label>{{ site_text('home_form_name_label', 'Adınız') }}</label>
+                                <input type="text" name="name" class="form-control" placeholder="{{ site_text('home_form_name_placeholder', 'Ad Soyad') }}">
                             </div>
                             <div class="form-group">
-                                <label>Telefon *</label>
+                                <label>{{ site_text('home_form_phone_label', 'Telefon *') }}</label>
                                 <input type="tel" name="phone" class="form-control" placeholder="+994 XX XXX XX XX" data-phone required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Ünvan</label>
-                            <input type="text" name="address" class="form-control" placeholder="Küçə, ev nömrəsi">
+                            <label>{{ site_text('home_form_address_label', 'Ünvan') }}</label>
+                            <input type="text" name="address" class="form-control" placeholder="{{ site_text('home_form_address_placeholder', 'Küçə, ev nömrəsi') }}">
                         </div>
                         <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px" onclick="submitOrder()">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.15a16 16 0 006.91 6.91l1.51-1.51a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                            Usta Çağır – Pulsuz
+                            {{ site_text('home_form_submit', 'Usta Çağır – Pulsuz') }}
                         </button>
                     </form>
                     <div class="hf-footer">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        Məlumatlarınız tam gizli saxlanılır
+                        {{ site_text('home_form_privacy', 'Məlumatlarınız tam gizli saxlanılır') }}
                     </div>
                 </div>
             </div>
@@ -133,7 +137,7 @@
                     📞 {{ $phone }}
                 </a>
                 <a href="{{ \App\Models\Setting::get('whatsapp_url', 'https://wa.me/994552345678') }}" class="btn btn-outline" target="_blank">
-                    💬 WhatsApp
+                    💬 {{ site_text('home_cta_whatsapp_btn', 'WhatsApp') }}
                 </a>
             </div>
         </div>
@@ -301,28 +305,28 @@
                 <div class="contact-item">
                     <div class="contact-item-icon">📍</div>
                     <div>
-                        <strong>Ünvan</strong>
+                        <strong>{{ site_text('ui_label_address', 'Ünvan') }}</strong>
                         <span>{{ $addr }}</span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">📞</div>
                     <div>
-                        <strong>Telefon</strong>
+                        <strong>{{ site_text('ui_label_phone', 'Telefon') }}</strong>
                         <span><a href="tel:+{{ $phoneClean }}">{{ $phone }}</a></span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">⏰</div>
                     <div>
-                        <strong>İş saatları</strong>
+                        <strong>{{ site_text('ui_label_hours', 'İş saatları') }}</strong>
                         <span>{{ $hours }}</span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-icon">✉️</div>
                     <div>
-                        <strong>E-mail</strong>
+                        <strong>{{ site_text('ui_label_email', 'E-poçt') }}</strong>
                         <span><a href="mailto:{{ $email }}">{{ $email }}</a></span>
                     </div>
                 </div>
@@ -332,29 +336,29 @@
                     @csrf
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Adınız</label>
-                            <input type="text" name="name" class="form-control" placeholder="Ad Soyad">
+                            <label>{{ site_text('home_form_name_label', 'Adınız') }}</label>
+                            <input type="text" name="name" class="form-control" placeholder="{{ site_text('home_form_name_placeholder', 'Ad Soyad') }}">
                         </div>
                         <div class="form-group">
-                            <label>Telefon *</label>
+                            <label>{{ site_text('home_form_phone_label', 'Telefon *') }}</label>
                             <input type="tel" name="phone" class="form-control" placeholder="+994 XX XXX XX XX" data-phone required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Xidmət</label>
+                        <label>{{ site_text('home_contact_service_label', 'Xidmət') }}</label>
                         <select name="service_id" class="form-control">
-                            <option value="">Xidmət seçin...</option>
+                            <option value="">{{ site_text('home_form_service_placeholder', 'Xidmət seçin...') }}</option>
                             @foreach($services as $service)
                                 <option value="{{ $service->id }}">{{ $service->icon }} {{ $service->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Qeyd</label>
-                        <textarea name="note" class="form-control" rows="3" placeholder="Problem haqqında qısaca yazın..."></textarea>
+                        <label>{{ site_text('home_contact_note_label', 'Qeyd') }}</label>
+                        <textarea name="note" class="form-control" rows="3" placeholder="{{ site_text('home_contact_note_placeholder', 'Problem haqqında qısaca yazın...') }}"></textarea>
                     </div>
                     <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px" onclick="submitOrder('contactForm')">
-                        Müraciət göndər →
+                        {{ site_text('home_contact_submit', 'Müraciət göndər →') }}
                     </button>
                 </form>
             </div>
@@ -376,8 +380,8 @@
 .hero-label{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;color:var(--primary);margin-bottom:24px}
 .hero-label-dot{width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.hero-content h1{font-size:58px;font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
-.hero-content h1 span{color:var(--primary)}
+.hero-content.fade-in h1{font-size:70px;font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
+.hero-content.fade-in h1 span{color:var(--primary)}
 .hero-desc{font-size:17px;color:rgba(255,255,255,0.7);margin-bottom:36px;line-height:1.7;max-width:500px}
 .hero-stats{display:flex;align-items:center;gap:24px;margin-bottom:28px}
 .hero-stat strong{display:block;font-size:26px;font-weight:800;color:var(--white)}
@@ -460,10 +464,10 @@
 .contact-form-wrap{background:var(--white);border-radius:var(--radius);padding:36px;border:1.5px solid var(--border)}
 textarea.form-control{resize:vertical;min-height:90px}
 /* RESPONSIVE */
-@media(max-width:1199px){.hero-grid{grid-template-columns:1fr 380px;gap:50px}.hero-content h1{font-size:46px}.adv-grid{grid-template-columns:repeat(3,1fr)}.services-grid{grid-template-columns:repeat(3,1fr)}.contact-grid{gap:40px}}
-@media(max-width:991px){.hero-grid{grid-template-columns:1fr}.hero-form-wrap{max-width:500px}.hero-content h1{font-size:38px}.hero{padding:72px 0 80px}.cta-banner-inner{flex-direction:column;text-align:center}.cta-banner-actions{justify-content:center}.services-grid{grid-template-columns:repeat(2,1fr)}.adv-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:repeat(2,1fr)}.steps-grid::before{display:none}.reviews-grid{grid-template-columns:repeat(2,1fr)}.stats-bar{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}.stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,0.1)}.contact-grid{grid-template-columns:1fr}.stat-item{padding:22px}.contact-form-wrap{padding:28px}}
-@media(max-width:767px){.hero{padding:52px 0 60px}.hero-content h1{font-size:28px;letter-spacing:-1px}.hero-desc{font-size:15px}.hero-stats{flex-wrap:wrap;gap:10px 18px}.hero-stat-divider{display:none}.hero-stat strong{font-size:18px}.services-grid{grid-template-columns:repeat(2,1fr)}.adv-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.reviews-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}.cta-banner{padding:40px 0}.cta-banner-text h2{font-size:22px}.stat-item{padding:18px}.contact-form-wrap{padding:20px}.partner-chip{padding:10px 18px;font-size:13px}.hf-body{padding:18px 20px}.hf-header{padding:18px 22px}}
-@media(max-width:480px){.hero{padding:40px 0 48px}.hero-content h1{font-size:24px}.services-grid{grid-template-columns:1fr}.adv-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr}.stat-item{border-right:none;border-top:1px solid rgba(255,255,255,0.1);padding:14px 12px}.stat-item strong{font-size:24px}.cta-banner{padding:32px 0}.cta-banner-text h2{font-size:18px}.contact-form-wrap{padding:16px}.partner-chip{padding:8px 14px;font-size:12px}.review-card{padding:20px}.hf-body{padding:14px 16px}.hf-header{padding:16px 18px}.hf-footer{padding:12px 16px}}
+@media(max-width:1199px){.hero-grid{grid-template-columns:1fr 380px;gap:50px}.hero-content.fade-in h1{font-size:60px}.adv-grid{grid-template-columns:repeat(3,1fr)}.services-grid{grid-template-columns:repeat(3,1fr)}.contact-grid{gap:40px}}
+@media(max-width:991px){.hero-grid{grid-template-columns:1fr}.hero-form-wrap{max-width:500px}.hero-content.fade-in h1{font-size:52px}.hero{padding:72px 0 80px}.cta-banner-inner{flex-direction:column;text-align:center}.cta-banner-actions{justify-content:center}.services-grid{grid-template-columns:repeat(2,1fr)}.adv-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:repeat(2,1fr)}.steps-grid::before{display:none}.reviews-grid{grid-template-columns:repeat(2,1fr)}.stats-bar{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}.stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,0.1)}.contact-grid{grid-template-columns:1fr}.stat-item{padding:22px}.contact-form-wrap{padding:28px}}
+@media(max-width:767px){.hero{padding:52px 0 60px}.hero-content.fade-in h1{font-size:70px;letter-spacing:-1px}.hero-desc{font-size:15px}.hero-stats{flex-wrap:wrap;gap:10px 18px}.hero-stat-divider{display:none}.hero-stat strong{font-size:18px}.services-grid{grid-template-columns:repeat(2,1fr)}.adv-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.reviews-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}.cta-banner{padding:40px 0}.cta-banner-text h2{font-size:22px}.stat-item{padding:18px}.contact-form-wrap{padding:20px}.partner-chip{padding:10px 18px;font-size:13px}.hf-body{padding:18px 20px}.hf-header{padding:18px 22px}}
+@media(max-width:480px){.hero{padding:40px 0 48px}.hero-content.fade-in h1{font-size:70px}.services-grid{grid-template-columns:1fr}.adv-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr}.stat-item{border-right:none;border-top:1px solid rgba(255,255,255,0.1);padding:14px 12px}.stat-item strong{font-size:24px}.cta-banner{padding:32px 0}.cta-banner-text h2{font-size:18px}.contact-form-wrap{padding:16px}.partner-chip{padding:8px 14px;font-size:12px}.review-card{padding:20px}.hf-body{padding:14px 16px}.hf-header{padding:16px 18px}.hf-footer{padding:12px 16px}}
 </style>
 @endpush
 
@@ -480,13 +484,13 @@ function submitOrder(formId) {
     .then(r => r.json())
     .then(res => {
         if (res.success) {
-            alert('Müraciətiniz qəbul edildi! Operator sizinlə ən qısa zamanda əlaqə saxlayacaq.');
+            alert(@json(site_text('alert_success', 'Müraciətiniz qəbul edildi! Operator sizinlə ən qısa zamanda əlaqə saxlayacaq.')));
             form.reset();
         } else {
-            alert('Zəhmət olmasa telefon nömrənizi daxil edin.');
+            alert(@json(site_text('alert_phone_required', 'Zəhmət olmasa telefon nömrənizi daxil edin.')));
         }
     })
-    .catch(() => alert('Xəta baş verdi. Zəhmət olmasa birbaşa zəng edin.'));
+    .catch(() => alert(@json(site_text('alert_generic_error', 'Xəta baş verdi. Zəhmət olmasa birbaşa zəng edin.'))));
 }
 </script>
 @endpush
