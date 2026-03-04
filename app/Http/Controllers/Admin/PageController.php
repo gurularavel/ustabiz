@@ -31,6 +31,32 @@ class PageController extends Controller
             Setting::set($key, $request->input($key));
         }
 
+        // Background images
+        foreach (['desktop', 'mobile'] as $device) {
+            $key = "hero_bg_{$device}";
+
+            if ($request->input("clear_{$key}") === '1') {
+                $old = Setting::get($key, '');
+                if ($old && file_exists(public_path($old))) {
+                    unlink(public_path($old));
+                }
+                Setting::set($key, '');
+            } elseif ($request->hasFile($key)) {
+                $file = $request->file($key);
+                $filename = "hero_{$device}_" . time() . '.' . $file->getClientOriginalExtension();
+                $uploadDir = public_path('assets/uploads/hero');
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+                $old = Setting::get($key, '');
+                if ($old && file_exists(public_path($old))) {
+                    unlink(public_path($old));
+                }
+                $file->move($uploadDir, $filename);
+                Setting::set($key, 'assets/uploads/hero/' . $filename);
+            }
+        }
+
         return back()->with('success', 'Hero bölməsi yeniləndi.');
     }
 

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('admin.pages.hero.update') }}">
+<form method="POST" action="{{ route('admin.pages.hero.update') }}" enctype="multipart/form-data">
     @csrf @method('PUT')
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
@@ -79,24 +79,66 @@
             </div>
 
             <div class="card" style="margin-bottom:20px;">
-                <div class="card-header"><span class="card-title">📋 Forma kartı</span></div>
+                <div class="card-header"><span class="card-title">🖼️ Fon şəkli</span></div>
                 <div class="card-body">
-                    <div class="form-group">
-                        <label class="form-label">Forma başlığı</label>
-                        <input type="text" name="hero_form_title" class="form-control"
-                               value="{{ old('hero_form_title', $s['hero_form_title'] ?? 'Usta Çağır') }}">
+                    @php
+                        $bgDesktop = $s['hero_bg_desktop'] ?? '';
+                        $bgMobile  = $s['hero_bg_mobile']  ?? '';
+                    @endphp
+
+                    {{-- Desktop --}}
+                    <div style="margin-bottom:20px;">
+                        <div style="font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:8px;">🖥️ Desktop fonu</div>
+                        @if($bgDesktop)
+                            <div style="position:relative;margin-bottom:10px;">
+                                <img src="{{ asset($bgDesktop) }}" alt="Desktop fon"
+                                     style="width:100%;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);">
+                                <label style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;color:#ef4444;cursor:pointer;">
+                                    <input type="checkbox" name="clear_hero_bg_desktop" value="1"
+                                           style="accent-color:#ef4444;width:14px;height:14px;">
+                                    Bu şəkli sil
+                                </label>
+                            </div>
+                        @else
+                            <div style="width:100%;height:80px;background:#f3f4f6;border:2px dashed #d1d5db;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#9ca3af;margin-bottom:10px;">
+                                Şəkil yüklənməyib
+                            </div>
+                        @endif
+                        <input type="file" name="hero_bg_desktop" class="form-control" accept="image/*"
+                               style="font-size:13px;">
+                        <div class="form-hint">Tövsiyə: 1920×1080px, JPG/PNG/WebP</div>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Forma alt mətni</label>
-                        <input type="text" name="hero_form_subtitle" class="form-control"
-                               value="{{ old('hero_form_subtitle', $s['hero_form_subtitle'] ?? 'Pulsuz diaqnostika + 12 ay zəmanət') }}">
+
+                    <hr style="border:none;border-top:1px solid var(--border);margin:0 0 20px;">
+
+                    {{-- Mobile --}}
+                    <div>
+                        <div style="font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:8px;">📱 Mobil fonu</div>
+                        @if($bgMobile)
+                            <div style="position:relative;margin-bottom:10px;">
+                                <img src="{{ asset($bgMobile) }}" alt="Mobil fon"
+                                     style="width:100%;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);">
+                                <label style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;color:#ef4444;cursor:pointer;">
+                                    <input type="checkbox" name="clear_hero_bg_mobile" value="1"
+                                           style="accent-color:#ef4444;width:14px;height:14px;">
+                                    Bu şəkli sil
+                                </label>
+                            </div>
+                        @else
+                            <div style="width:100%;height:80px;background:#f3f4f6;border:2px dashed #d1d5db;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#9ca3af;margin-bottom:10px;">
+                                Şəkil yüklənməyib
+                            </div>
+                        @endif
+                        <input type="file" name="hero_bg_mobile" class="form-control" accept="image/*"
+                               style="font-size:13px;">
+                        <div class="form-hint">Tövsiyə: 768×1024px, şaquli oriyentasiya</div>
                     </div>
                 </div>
             </div>
 
             <div class="card" style="margin-bottom:20px;">
                 <div class="card-header"><span class="card-title">👁️ Önizləmə</span></div>
-                <div class="card-body" style="background:#12121E;border-radius:8px;padding:20px;color:#fff;">
+                <div class="card-body" style="background:{{ ($bgDesktop ?? '') ? 'linear-gradient(rgba(10,18,35,0.82),rgba(10,22,40,0.88)),url('.asset($bgDesktop ?? '').') center/cover' : '#12121E' }};border-radius:8px;padding:20px;color:#fff;">
                     <div style="font-size:11px;color:#FF6B35;margin-bottom:8px;">● <span id="prev_label">{{ $s['hero_label'] ?? 'Bakıda №1 Texnika Təmiri' }}</span></div>
                     <div style="font-size:22px;font-weight:800;line-height:1.2;margin-bottom:8px;">
                         <span id="prev_title">{{ $s['hero_title'] ?? 'Evinizin texnikası' }}</span><br>

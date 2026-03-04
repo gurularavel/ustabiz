@@ -80,7 +80,7 @@
             <div class="header-cta">
                 <a href="tel:{{ preg_replace('/\D/', '', \App\Models\Setting::get('phone', '0505552026')) }}" class="header-phone">
                     <div class="header-phone-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A3161" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12 19.79 19.79 0 012.12 3.33A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2f96dc" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12 19.79 19.79 0 012.12 3.33A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                     </div>
                     {{ \App\Models\Setting::get('phone', '(050) 555-20-26') }}
                 </a>
@@ -139,7 +139,7 @@
                     <div class="logo-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                     </div>
-                    <span class="logo-text">USTA<span style="color:#FF6B35">.BİZ.AZ</span></span>
+                    <span class="logo-text">USTA<span style="color:var(--primary)">.BİZ.AZ</span></span>
                 </a>
                 <p class="footer-desc">{{ site_text('ui_footer_desc', 'Bakı şəhərinin ən etibarlı ev texnikası təmir xidməti. 4+ il təcrübə, 4000+ uğurlu sifariş.') }}</p>
                 <div class="footer-social">

@@ -135,8 +135,8 @@
 /* PLAY BUTTON */
 .pf-play-btn{position:absolute;inset:0;width:100%;height:100%;background:rgba(0,0,0,0);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s}
 .pf-play-btn:hover{background:rgba(0,0,0,.25)}
-.pf-play-icon{width:64px;height:64px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(255,107,53,.5);transition:transform .2s,box-shadow .2s}
-.pf-play-btn:hover .pf-play-icon{transform:scale(1.1);box-shadow:0 8px 32px rgba(255,107,53,.6)}
+.pf-play-icon{width:64px;height:64px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(47,150,220,.5);transition:transform .2s,box-shadow .2s}
+.pf-play-btn:hover .pf-play-icon{transform:scale(1.1);box-shadow:0 8px 32px rgba(47,150,220,.6)}
 
 /* BADGES */
 .pf-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.7);color:#fff;font-size:12px;font-weight:500;padding:4px 10px;border-radius:100px;backdrop-filter:blur(4px)}

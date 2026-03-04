@@ -37,8 +37,8 @@
                 </div>
                 <div class="hero-trust">
                     <div class="trust-avatars">
-                        <div class="trust-avatar" style="background:#FF6B35">E</div>
-                        <div class="trust-avatar" style="background:#0A3161">L</div>
+                        <div class="trust-avatar" style="background:#2f96dc">E</div>
+                        <div class="trust-avatar" style="background:#2f96dc">L</div>
                         <div class="trust-avatar" style="background:#22C55E">R</div>
                     </div>
                     @php
@@ -46,51 +46,6 @@
                         $heroTrustText = str_replace(':count', $heroTrustCount, site_text('home_hero_trust_text', 'Son 7 gündə :count müştəriyə xidmət göstərdik'));
                     @endphp
                     <p>{!! str_replace($heroTrustCount, '<strong>' . e($heroTrustCount) . '</strong>', e($heroTrustText)) !!}</p>
-                </div>
-            </div>
-            <div class="hero-form-wrap fade-in" style="animation-delay:0.2s">
-                <div class="hero-form-card">
-                    <div class="hf-header">
-                        <div class="hf-icon">🔧</div>
-                        <div>
-                            <h3>{{ \App\Models\Setting::get('hero_form_title', 'Usta Çağır') }}</h3>
-                            <p>{{ \App\Models\Setting::get('hero_form_subtitle', 'Pulsuz diaqnostika + 12 ay zəmanət') }}</p>
-                        </div>
-                    </div>
-                    <form class="hf-body" id="orderForm">
-                        @csrf
-                        <div class="form-group">
-                            <label>{{ site_text('home_form_service_label', 'Xidmət növü') }}</label>
-                            <select name="service_id" class="form-control" required>
-                                <option value="">{{ site_text('home_form_service_placeholder', 'Xidmət seçin...') }}</option>
-                                @foreach($services as $service)
-                                    <option value="{{ $service->id }}">{{ $service->icon }} {{ $service->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>{{ site_text('home_form_name_label', 'Adınız') }}</label>
-                                <input type="text" name="name" class="form-control" placeholder="{{ site_text('home_form_name_placeholder', 'Ad Soyad') }}">
-                            </div>
-                            <div class="form-group">
-                                <label>{{ site_text('home_form_phone_label', 'Telefon *') }}</label>
-                                <input type="tel" name="phone" class="form-control" placeholder="+994 XX XXX XX XX" data-phone required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>{{ site_text('home_form_address_label', 'Ünvan') }}</label>
-                            <input type="text" name="address" class="form-control" placeholder="{{ site_text('home_form_address_placeholder', 'Küçə, ev nömrəsi') }}">
-                        </div>
-                        <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px" onclick="submitOrder()">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.15a16 16 0 006.91 6.91l1.51-1.51a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                            {{ site_text('home_form_submit', 'Usta Çağır – Pulsuz') }}
-                        </button>
-                    </form>
-                    <div class="hf-footer">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        {{ site_text('home_form_privacy', 'Məlumatlarınız tam gizli saxlanılır') }}
-                    </div>
                 </div>
             </div>
         </div>
@@ -285,122 +240,35 @@
     </div>
 </section>
 
-{{-- CONTACT --}}
-<section class="section section-alt" id="elaqe">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-label">{{ \App\Models\Setting::get('home_contact_label', '📬 Əlaqə') }}</div>
-            <h2>{{ \App\Models\Setting::get('home_contact_title', 'Bizimlə əlaqə saxlayın') }}</h2>
-            <p>{{ \App\Models\Setting::get('home_contact_desc', 'Hər hansı sualınız varsa, zəng edin. Və ya formu doldurun, biz sizə zəng edək.') }}</p>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-info">
-                @php
-                    $addr = \App\Models\Setting::get('address', 'H. Zərdabi 78V, Bakı, Azərbaycan');
-                    $phone = \App\Models\Setting::get('phone', '+994 55 234 56 78');
-                    $phoneClean = preg_replace('/\D/', '', $phone);
-                    $hours = \App\Models\Setting::get('working_hours', 'Hər gün: 08:00 – 22:00');
-                    $email = \App\Models\Setting::get('email', 'info@usta.biz.az');
-                @endphp
-                <div class="contact-item">
-                    <div class="contact-item-icon">📍</div>
-                    <div>
-                        <strong>{{ site_text('ui_label_address', 'Ünvan') }}</strong>
-                        <span>{{ $addr }}</span>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">📞</div>
-                    <div>
-                        <strong>{{ site_text('ui_label_phone', 'Telefon') }}</strong>
-                        <span><a href="tel:+{{ $phoneClean }}">{{ $phone }}</a></span>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">⏰</div>
-                    <div>
-                        <strong>{{ site_text('ui_label_hours', 'İş saatları') }}</strong>
-                        <span>{{ $hours }}</span>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">✉️</div>
-                    <div>
-                        <strong>{{ site_text('ui_label_email', 'E-poçt') }}</strong>
-                        <span><a href="mailto:{{ $email }}">{{ $email }}</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-form-wrap">
-                <form id="contactForm">
-                    @csrf
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>{{ site_text('home_form_name_label', 'Adınız') }}</label>
-                            <input type="text" name="name" class="form-control" placeholder="{{ site_text('home_form_name_placeholder', 'Ad Soyad') }}">
-                        </div>
-                        <div class="form-group">
-                            <label>{{ site_text('home_form_phone_label', 'Telefon *') }}</label>
-                            <input type="tel" name="phone" class="form-control" placeholder="+994 XX XXX XX XX" data-phone required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ site_text('home_contact_service_label', 'Xidmət') }}</label>
-                        <select name="service_id" class="form-control">
-                            <option value="">{{ site_text('home_form_service_placeholder', 'Xidmət seçin...') }}</option>
-                            @foreach($services as $service)
-                                <option value="{{ $service->id }}">{{ $service->icon }} {{ $service->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ site_text('home_contact_note_label', 'Qeyd') }}</label>
-                        <textarea name="note" class="form-control" rows="3" placeholder="{{ site_text('home_contact_note_placeholder', 'Problem haqqında qısaca yazın...') }}"></textarea>
-                    </div>
-                    <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px" onclick="submitOrder('contactForm')">
-                        {{ site_text('home_contact_submit', 'Müraciət göndər →') }}
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
 @endsection
 
 @push('styles')
 <style>
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--dark) 0%,var(--dark-2) 55%,#0A1628 100%);color:var(--white);padding:90px 0 100px;position:relative;overflow:hidden}
+.hero{background:var(--white);color:var(--dark);padding:90px 0 100px;position:relative;overflow:hidden}
+@php $heroBgDesktop=\App\Models\Setting::get('hero_bg_desktop','');$heroBgMobile=\App\Models\Setting::get('hero_bg_mobile',''); @endphp
+@if($heroBgDesktop).hero{background-image:url('{{ asset($heroBgDesktop) }}');background-size:contain;background-position:bottom right;background-repeat:no-repeat}@media(max-width:767px){.hero{padding-bottom:280px;background-size:166%;background-position:89% bottom}}@endif
 .hero-bg-shapes{position:absolute;inset:0;pointer-events:none}
 .hero-shape{position:absolute;border-radius:50%}
-.hero-shape-1{width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,53,0.12) 0%,transparent 70%);top:-100px;right:-100px}
-.hero-shape-2{width:400px;height:400px;background:radial-gradient(circle,rgba(10,49,97,0.4) 0%,transparent 70%);bottom:-50px;left:10%}
-.hero-grid{display:grid;grid-template-columns:1fr 440px;gap:80px;align-items:center;position:relative;z-index:1}
-.hero-label{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;color:var(--primary);margin-bottom:24px}
+.hero-shape-1{width:600px;height:600px;background:radial-gradient(circle,rgba(47,150,220,0.18) 0%,transparent 70%);top:-100px;right:-100px}
+.hero-shape-2{width:400px;height:400px;background:radial-gradient(circle,rgba(47,150,220,0.4) 0%,transparent 70%);bottom:-50px;left:10%}
+.hero-grid{display:grid;grid-template-columns:1fr;max-width:760px;position:relative;z-index:1}
+.hero-label{display:inline-flex;align-items:center;gap:8px;background:rgba(47,150,220,0.18);border:1px solid rgba(47,150,220,0.35);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;color:var(--primary);margin-bottom:24px}
 .hero-label-dot{width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 .hero-content.fade-in h1{font-size:70px;font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
 .hero-content.fade-in h1 span{color:var(--primary)}
-.hero-desc{font-size:17px;color:rgba(255,255,255,0.7);margin-bottom:36px;line-height:1.7;max-width:500px}
+.hero-desc{font-size:17px;color:var(--text-muted);margin-bottom:36px;line-height:1.7;max-width:500px}
 .hero-stats{display:flex;align-items:center;gap:24px;margin-bottom:28px}
-.hero-stat strong{display:block;font-size:26px;font-weight:800;color:var(--white)}
-.hero-stat span{font-size:13px;color:rgba(255,255,255,0.5)}
-.hero-stat-divider{width:1px;height:40px;background:rgba(255,255,255,0.15)}
+.hero-stat strong{display:block;font-size:26px;font-weight:800;color:var(--dark)}
+.hero-stat span{font-size:13px;color:var(--text-muted)}
+.hero-stat-divider{width:1px;height:40px;background:var(--border)}
 .hero-trust{display:flex;align-items:center;gap:12px}
 .trust-avatars{display:flex}
-.trust-avatar{width:36px;height:36px;border-radius:50%;border:2px solid var(--dark);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;margin-left:-8px}
+.trust-avatar{width:36px;height:36px;border-radius:50%;border:2px solid var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;margin-left:-8px}
 .trust-avatar:first-child{margin-left:0}
-.hero-trust p{font-size:14px;color:rgba(255,255,255,0.6)}
+.hero-trust p{font-size:14px;color:var(--text-muted)}
 .hero-trust strong{color:var(--primary)}
-/* HERO FORM CARD */
-.hero-form-card{background:var(--white);border-radius:24px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.4)}
-.hf-header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));padding:24px 28px;display:flex;align-items:center;gap:14px}
-.hf-icon{width:46px;height:46px;background:rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
-.hf-header h3{font-size:19px;font-weight:700;color:#fff;margin:0 0 4px}
-.hf-header p{font-size:13px;color:rgba(255,255,255,0.8);margin:0}
-.hf-body{padding:24px 28px}
-.hf-footer{padding:14px 28px;background:var(--bg);border-top:1px solid var(--border);display:flex;align-items:center;gap:8px;justify-content:center;font-size:13px;color:var(--text-muted)}
 /* SERVICES */
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .service-card{background:var(--white);border-radius:var(--radius);padding:28px 24px;border:1.5px solid var(--border);display:flex;flex-direction:column;gap:14px;transition:all 0.3s}
@@ -454,43 +322,11 @@
 .partners-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
 .partner-chip{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 28px;font-size:15px;font-weight:700;color:var(--text-muted);transition:all 0.3s}
 .partner-chip:hover{border-color:var(--primary);color:var(--primary)}
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
-.contact-item-icon{width:48px;height:48px;background:var(--primary-light);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.contact-item strong{display:block;font-size:14px;font-weight:600;color:var(--dark);margin-bottom:4px}
-.contact-item span{font-size:15px;color:var(--text-muted)}
-.contact-item a{color:var(--primary)}
-.contact-form-wrap{background:var(--white);border-radius:var(--radius);padding:36px;border:1.5px solid var(--border)}
-textarea.form-control{resize:vertical;min-height:90px}
 /* RESPONSIVE */
-@media(max-width:1199px){.hero-grid{grid-template-columns:1fr 380px;gap:50px}.hero-content.fade-in h1{font-size:60px}.adv-grid{grid-template-columns:repeat(3,1fr)}.services-grid{grid-template-columns:repeat(3,1fr)}.contact-grid{gap:40px}}
-@media(max-width:991px){.hero-grid{grid-template-columns:1fr}.hero-form-wrap{max-width:500px}.hero-content.fade-in h1{font-size:52px}.hero{padding:72px 0 80px}.cta-banner-inner{flex-direction:column;text-align:center}.cta-banner-actions{justify-content:center}.services-grid{grid-template-columns:repeat(2,1fr)}.adv-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:repeat(2,1fr)}.steps-grid::before{display:none}.reviews-grid{grid-template-columns:repeat(2,1fr)}.stats-bar{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}.stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,0.1)}.contact-grid{grid-template-columns:1fr}.stat-item{padding:22px}.contact-form-wrap{padding:28px}}
-@media(max-width:767px){.hero{padding:52px 0 60px}.hero-content.fade-in h1{font-size:70px;letter-spacing:-1px}.hero-desc{font-size:15px}.hero-stats{flex-wrap:wrap;gap:10px 18px}.hero-stat-divider{display:none}.hero-stat strong{font-size:18px}.services-grid{grid-template-columns:repeat(2,1fr)}.adv-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.reviews-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}.cta-banner{padding:40px 0}.cta-banner-text h2{font-size:22px}.stat-item{padding:18px}.contact-form-wrap{padding:20px}.partner-chip{padding:10px 18px;font-size:13px}.hf-body{padding:18px 20px}.hf-header{padding:18px 22px}}
-@media(max-width:480px){.hero{padding:40px 0 48px}.hero-content.fade-in h1{font-size:70px}.services-grid{grid-template-columns:1fr}.adv-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr}.stat-item{border-right:none;border-top:1px solid rgba(255,255,255,0.1);padding:14px 12px}.stat-item strong{font-size:24px}.cta-banner{padding:32px 0}.cta-banner-text h2{font-size:18px}.contact-form-wrap{padding:16px}.partner-chip{padding:8px 14px;font-size:12px}.review-card{padding:20px}.hf-body{padding:14px 16px}.hf-header{padding:16px 18px}.hf-footer{padding:12px 16px}}
+@media(max-width:1199px){.hero-content.fade-in h1{font-size:60px}.adv-grid{grid-template-columns:repeat(3,1fr)}.services-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:991px){.hero-content.fade-in h1{font-size:52px}.hero{padding:72px 0 80px}.cta-banner-inner{flex-direction:column;text-align:center}.cta-banner-actions{justify-content:center}.services-grid{grid-template-columns:repeat(2,1fr)}.adv-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:repeat(2,1fr)}.steps-grid::before{display:none}.reviews-grid{grid-template-columns:repeat(2,1fr)}.stats-bar{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}.stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,0.1)}.stat-item{padding:22px}}
+@media(max-width:767px){.hero{padding:52px 0 60px}.hero-content.fade-in h1{font-size:52px;letter-spacing:-1px}.hero-desc{font-size:15px}.hero-stats{flex-wrap:wrap;gap:10px 18px}.hero-stat-divider{display:none}.hero-stat strong{font-size:18px}.services-grid{grid-template-columns:repeat(2,1fr)}.adv-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.reviews-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}.cta-banner{padding:40px 0}.cta-banner-text h2{font-size:22px}.stat-item{padding:18px}.partner-chip{padding:10px 18px;font-size:13px}}
+@media(max-width:480px){.hero{padding:40px 0 48px}.hero-content.fade-in h1{font-size:40px}.services-grid{grid-template-columns:1fr}.adv-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr}.stat-item{border-right:none;border-top:1px solid rgba(255,255,255,0.1);padding:14px 12px}.stat-item strong{font-size:24px}.cta-banner{padding:32px 0}.cta-banner-text h2{font-size:18px}.partner-chip{padding:8px 14px;font-size:12px}.review-card{padding:20px}}
 </style>
 @endpush
 
-@push('scripts')
-<script>
-function submitOrder(formId) {
-    const form = document.getElementById(formId || 'orderForm');
-    const data = new FormData(form);
-    fetch('{{ route("order.store") }}', {
-        method: 'POST',
-        headers: {'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content, 'Accept': 'application/json'},
-        body: data
-    })
-    .then(r => r.json())
-    .then(res => {
-        if (res.success) {
-            alert(@json(site_text('alert_success', 'Müraciətiniz qəbul edildi! Operator sizinlə ən qısa zamanda əlaqə saxlayacaq.')));
-            form.reset();
-        } else {
-            alert(@json(site_text('alert_phone_required', 'Zəhmət olmasa telefon nömrənizi daxil edin.')));
-        }
-    })
-    .catch(() => alert(@json(site_text('alert_generic_error', 'Xəta baş verdi. Zəhmət olmasa birbaşa zəng edin.'))));
-}
-</script>
-@endpush

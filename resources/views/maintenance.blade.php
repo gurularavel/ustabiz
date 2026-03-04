@@ -41,9 +41,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,107,53,0.15);
-            border: 1px solid rgba(255,107,53,0.35);
-            color: #FF6B35;
+            background: rgba(47,150,220,0.18);
+            border: 1px solid rgba(47,150,220,0.35);
+            color: #2f96dc;
             border-radius: 100px;
             padding: 6px 18px;
             font-size: 13px;
@@ -52,7 +52,7 @@
         }
         .badge-dot {
             width: 7px; height: 7px;
-            background: #FF6B35;
+            background: #2f96dc;
             border-radius: 50%;
             animation: pulse 1.5s infinite;
         }
@@ -64,7 +64,7 @@
             margin-bottom: 16px;
             line-height: 1.15;
         }
-        h1 span { color: #FF6B35; }
+        h1 span { color: #2f96dc; }
         p {
             font-size: 16px;
             color: rgba(255,255,255,0.6);
@@ -85,7 +85,7 @@
             color: rgba(255,255,255,0.75);
         }
         .contact-row a {
-            color: #FF6B35;
+            color: #2f96dc;
             text-decoration: none;
             font-weight: 600;
         }
@@ -96,7 +96,7 @@
             color: #fff;
             margin-bottom: 8px;
         }
-        .logo span { color: #FF6B35; }
+        .logo span { color: #2f96dc; }
         @media(max-width:480px){
             .card { padding: 40px 24px; }
             h1 { font-size: 26px; }
