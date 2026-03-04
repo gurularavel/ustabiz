@@ -46,7 +46,7 @@
 
 {{-- HEADER --}}
 <header class="header">
-    <div class="container">claude
+    <div class="container">
         <div class="header-inner">
             <a href="{{ route('home') }}" class="logo">
                 <img src="{{ asset('assets/logoustabizaz.png') }}" alt="USTA.BİZ.AZ" class="site-logo-img">
