@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}?v={{ mt_rand(100000, 999999) }}">
     @stack('styles')
 </head>
 <body>
@@ -46,7 +46,7 @@
 
 {{-- HEADER --}}
 <header class="header">
-    <div class="container">
+    <div class="container">claude
         <div class="header-inner">
             <a href="{{ route('home') }}" class="logo">
                 <img src="{{ asset('assets/logoustabizaz.png') }}" alt="USTA.BİZ.AZ" class="site-logo-img">
