@@ -235,13 +235,8 @@
 
 <aside class="sidebar" id="sidebar">
     <a href="{{ route('admin.dashboard') }}" class="sidebar-logo">
-        <div class="sidebar-logo-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div>
-            <div class="sidebar-logo-text">USTA<span>.BİZ.AZ</span></div>
-            <div class="sidebar-subtitle">Admin Panel</div>
-        </div>
+        <img src="{{ asset('assets/logoustabizaz.png') }}" alt="USTA.BİZ.AZ" style="height:48px;width:auto;">
+        <div class="sidebar-subtitle" style="color:rgba(255,255,255,0.6);font-size:11px;margin-top:2px;">Admin Panel</div>
     </a>
 
     <nav class="sidebar-nav">

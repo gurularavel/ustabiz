@@ -49,10 +49,7 @@
     <div class="container">
         <div class="header-inner">
             <a href="{{ route('home') }}" class="logo">
-                <div class="logo-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-                </div>
-                <span class="logo-text">USTA<span>.BİZ.AZ</span></span>
+                <img src="{{ asset('assets/logoustabizaz.png') }}" alt="USTA.BİZ.AZ" class="site-logo-img">
             </a>
 
             <nav class="nav">
@@ -99,10 +96,7 @@
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-header">
         <a href="{{ route('home') }}" class="logo" onclick="toggleMenu()">
-            <div class="logo-icon" style="width:36px;height:36px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <span class="logo-text">USTA<span>.BİZ.AZ</span></span>
+            <img src="{{ asset('assets/logoustabizaz.png') }}" alt="USTA.BİZ.AZ" style="height:80px;width:auto;display:block;margin:0 auto;">
         </a>
         <div class="mobile-menu-close"><button class="close-btn" onclick="toggleMenu()">✕</button></div>
     </div>
@@ -136,10 +130,7 @@
         <div class="footer-grid">
             <div>
                 <a href="{{ route('home') }}" class="logo footer-logo">
-                    <div class="logo-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-                    </div>
-                    <span class="logo-text">USTA<span style="color:var(--primary)">.BİZ.AZ</span></span>
+                    <img src="{{ asset('assets/logoustabizaz.png') }}" alt="USTA.BİZ.AZ" style="height:52px;width:auto;">
                 </a>
                 <p class="footer-desc">{{ site_text('ui_footer_desc', 'Bakı şəhərinin ən etibarlı ev texnikası təmir xidməti. 4+ il təcrübə, 4000+ uğurlu sifariş.') }}</p>
                 <div class="footer-social">
